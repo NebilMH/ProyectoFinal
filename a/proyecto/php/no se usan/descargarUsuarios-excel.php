@@ -28,7 +28,7 @@
             'apellido' => $row['apellido'],
             'email' => $row['email'],
             'usuario' => $row['usuario'],
-            'contraseña' => $row['contraseña']      
+            'contrasenia' => $row['contrasenia']      
         );
         }
             $jsonstring = json_encode($json);
@@ -53,7 +53,7 @@
                     <td style="border: 1px solid black;"><?php echo $usuario ['apellido'];?></td>
                     <td style="border: 1px solid black;"><?php echo $usuario ['email'];?></td>
                     <td style="border: 1px solid black;"><?php echo $usuario ['usuario'];?></td>
-                    <td style="border: 1px solid black;"><?php echo $usuario ['contraseña'];?></td>
+                    <td style="border: 1px solid black;"><?php echo $usuario ['contrasenia'];?></td>
                 </tr>
             <?php } ?>
         </tbody>

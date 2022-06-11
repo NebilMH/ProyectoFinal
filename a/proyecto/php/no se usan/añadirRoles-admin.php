@@ -39,14 +39,6 @@
 							<div class="login-wrap p-4 p-md-5">
 								<div class="d-flex">
 									<div class="w-100">
-										<ul class="list">
-											<div>
-												<button class="switch" id="switch">
-													<span><i class="fas fa-sun"></i></span>
-													<span><i class="fas fa-moon"></i></span>
-												</button>
-											</div>
-										</ul>
 										<h4 class="mb-4">Rol añadido correctamente</h4>			
 									</div>
 								</div>
@@ -95,18 +87,10 @@
 							<div class="login-wrap p-4 p-md-5">
 								<div class="d-flex">
 									<div class="w-100">
-										<ul class="list">
-											<div>
-												<button class="switch" id="switch">
-													<span><i class="fas fa-sun"></i></span>
-													<span><i class="fas fa-moon"></i></span>
-												</button>
-											</div>
-										</ul>
 										<h4 class="mb-4">Los campos no pueden estar vacios</h4>			
 									</div>
 								</div>
-        						<button type="submit" ONCLICK="window.location.href= 'admin-roles.php'" class="form-control btn rounded submit px-3">Volveer</button>
+        						<button type="submit" ONCLICK="window.location.href= 'admin-roles.php'" class="form-control btn rounded submit px-3">Volver</button>
 							</div>
 						</div>
 					</div>

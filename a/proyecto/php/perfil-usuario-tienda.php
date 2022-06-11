@@ -27,7 +27,9 @@
 <!doctype html>
 <html lang="en">
 	<head>
-	<title>Nabil Messaoudi Hammu</title>
+	<!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -50,41 +52,33 @@
 						<div class="login-wrap p-4 p-md-5">
 			<div class="d-flex">
 			<div class="w-100">
-					<ul class="list">
-						<div>
-							<button class="switch" id="switch">
-								<span><i class="fas fa-sun"></i></span>
-								<span><i class="fas fa-moon"></i></span>
-							</button>
-						</div>
-					</ul>
 				<h3 class="mb-4">Editar datos</h3>			
 			</div>
 		</div>
-		<form style="line-height: 1;" action="editarUsuarios.php" method="post" class="signin-form">
+		<form style="line-height: 1;" action="editarUsuario-tienda.php" method="post" class="signin-form">
 			<div class="form-group mt-2">
-                <label for="">Nombre:</label>
-				<input name="Enombre" type="text" class="form-control" value="<?php echo $row['nombre'];?>">
+                <label for="nombrelbl">Nombre:</label>
+				<input id="nombrelbl" name="Enombre" type="text" class="form-control" value="<?php echo $row['nombre'];?>">
 			</div>
 
             <div class="form-group mt-2">
-            <label for="">Apellido:</label>
-				<input name="Eapellido" type="text" class="form-control" value="<?php echo $row['apellido'];?>">
+            <label for="apellidolbl">Apellido:</label>
+				<input id="apellidolbl" name="Eapellido" type="text" class="form-control" value="<?php echo $row['apellido'];?>">
 			</div>
 
             <div class="form-group mt-2">
-            <label for="">Email:</label>
-				<input name="Eemail" type="text" class="form-control" value="<?php echo $row['email'];?>">
+            <label for="emaillbl">Email:</label>
+				<input id="emaillbl" name="Eemail" type="text" class="form-control" value="<?php echo $row['email'];?>">
 			</div>
 
             <div class="form-group mt-2">
-            <label for="">Usuario:</label>
-				<input name="Eusuario" type="text" class="form-control" value="<?php echo $row['usuario'];?>">
+            <label for="usuariolbl">Usuario:</label>
+				<input id="usuariolbl" name="Eusuario" type="text" class="form-control" value="<?php echo $row['usuario'];?>">
 			</div>
 
             <div class="form-group mt-2">
-            <label for="">Contraseña:</label>
-				<input name="Econtraseña" type="text" class="form-control">
+            <label for="contrasenialbl">contrasenia:</label>
+				<input id="contrasenialbl" name="Econtrasenia" type="text" placeholder="Introduzca su contrasenia" class="form-control">
 			</div>
 
 			<!--<input type="hidden" name="id" value="<?php /*echo $row['id'];*/?>">
@@ -92,13 +86,13 @@
             <input type="text" name="apellido" value="<?php /*echo $row['apellido'];*/?>">
             <input type="text" name="email" value="<?php /*echo $row['email'];*/?>">
             <input type="text" name="usuario" value="<?php /*echo $row['usuario'];*/?>">
-            <input type="text" name="contraseña" value="<?php /*echo $row['contraseña'];*/?>">-->
+            <input type="text" name="contrasenia" value="<?php /*echo $row['contrasenia'];*/?>">-->
 
 			<div class="form-group">
 				<button type="submit" class="form-control btn btn-primary rounded submit px-3">Actualizar datos</button>
 			</div>
 		</form>
-			<p class="text-center"><a data-toggle="tab" href="#signup" ONCLICK="window.location.href= '../index.php'">Volver a inicio</a></p>
+			<p class="text-center"><a data-toggle="tab" href="#signup" ONCLICK="window.location.href= '../shop/index.php'">Volver a inicio</a></p>
 		</div>
 		</div>
 				</div>
@@ -122,7 +116,9 @@
 		<!doctype html>
     <html lang="en">
         <head>
-        <title>Nabil Messaoudi Hammu</title>
+        <!--<title>Nabil Messaoudi Hammu</title>-->
+        <title>Gym Contigo</title>
+        <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -144,14 +140,6 @@
                                 <div class="login-wrap p-4 p-md-5">
                                     <div class="d-flex">
                                         <div class="w-100">
-                                            <ul class="list">
-                                                <div>
-                                                    <button class="switch" id="switch">
-                                                        <span><i class="fas fa-sun"></i></span>
-                                                        <span><i class="fas fa-moon"></i></span>
-                                                    </button>
-                                                </div>
-                                            </ul>
                                             <h4 class="mb-4">No tengo id</h4>			
                                         </div>
                                     </div>

@@ -17,7 +17,9 @@
 <!doctype html>
     <html lang="es">
         <head>
-        <title>Nabil Messaoudi Hammu</title>
+        <!--<title>Nabil Messaoudi Hammu</title>-->
+        <title>Gym Contigo</title>
+        <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -39,18 +41,10 @@
                                 <div class="login-wrap p-4 p-md-5">
                                     <div class="d-flex">
                                         <div class="w-100">
-                                            <ul class="list">
-                                                <div>
-                                                    <button class="switch" id="switch">
-                                                        <span><i class="fas fa-sun"></i></span>
-                                                        <span><i class="fas fa-moon"></i></span>
-                                                    </button>
-                                                </div>
-                                            </ul>
                                             <h4 class="mb-4">Este email no existe</h4>			
                                         </div>
                                     </div>
-                                    <button type="submit" ONCLICK="window.location.href= 'olvidar-contraseña.php'" class="form-control btn rounded submit px-3">Volver a intentar</button>
+                                    <button type="submit" ONCLICK="window.location.href= 'olvidar-contrasenia.php'" class="form-control btn rounded submit px-3">Volver a intentar</button>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +65,11 @@
 
     $mail = new PHPMailer(true);
 
-    $codigo = rand(10000,99999);//Generamos un codigo aleatorio que enviaremos al usuario por gmail
+    function generateRandomString($length = 10) { //Generamos un codigo aleatorio que enviaremos al usuario por gmail
+        return substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length); 
+    }
+
+    $codigo = generateRandomString($length = 10);
 
     $_SESSION['codigoPass'] = $codigo;
 
@@ -90,15 +88,15 @@
 
         $mail->isHTML(true);
         $mail->Subject = 'Verificacion de cambio de contraseña';
-        $mail->Body = "Tu codigo para cambiar la contraseña es: '$codigo'";
+        $mail->Body = "Tu codigo para cambiar la contrasenia es: $codigo";
         $mail->send();
 
         /*echo "<script type='text/javascript'>
-                window.location.href = 'verificacion.php?codigo=$codigo&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contraseña=$contraseña';
+                window.location.href = 'verificacion.php?codigo=$codigo&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contrasenia=$contrasenia';
             </script>
         ";*/
 
-        //header ("Location: verificacion.php?codigo=$codigo&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contraseña=$contraseña"); 
+        //header ("Location: verificacion.php?codigo=$codigo&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contrasenia=$contrasenia"); 
         //exit;
 ?>
     <!--Una vez generado el codigo vamos a comprobar que el codigo es correcto redirigiendonos al verificar-codigo-olvidarC y pasandole los datos necesario-->

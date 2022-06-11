@@ -3,7 +3,6 @@ $(document).ready(function () {
     verProductos();
     verEjercicios();
     verSoporte();
-    verRol();
 
     // Usuarios -----------------------------------------------------------------------------------------------------------------------------------------
     function verUsuarios() {
@@ -22,7 +21,7 @@ $(document).ready(function () {
                         <td>${dato.apellido}</td>
                         <td id="idEmail">${dato.email}</td>
                         <td>${dato.usuario}</td>
-                        <td id="idPass">${dato.contraseña}</td>
+                        <td id="idPass">${dato.contrasenia}</td>
                         <td><a href="#" class="editarUsuarios" style='font-size:17px;border:none;cursor:pointer;color:green;'><i class="fa-solid fa-pen"></i></a></td>
                         <td><button style='background-color:transparent;font-size:15px;border:none;cursor:pointer;color:red;'><i id='papelera' class='eliminarUsuarios fa-solid fa-trash'></i></button></td>
                         <td style="display:none;"><button id="limpiarResult">Limpiar Resultados</button></td>                 
@@ -206,61 +205,16 @@ $(document).ready(function () {
                     const dato = JSON.parse(response);
                     $('#inputId').val(dato.id);
                     $('#update_url').val(dato.urlP);
+                    $('#update_urlV').val(dato.urlV);
                     $('#update_imagenE').val(dato.imagen);
                     $('#update_titulo').val(dato.titulo);
+                    $('#update_descripcion').val(dato.descripcion);
                     edit = true;
                 });
                 e.preventDefault();
         });
 
-        // Rol -----------------------------------------------------------------------------------------------------------------------------------------
-        function verRol() {
-            $.ajax({
-                url: 'verRol.php',
-                type: 'GET',
-                success: function (response) {
-                    const datos = JSON.parse(response);
-                    let template = '';
-                    datos.forEach(dato => {
-                        template += `
-                        <tr inputId="${dato.id}" id="${dato.rol}_${dato.id}" class="rolEncontrado_${dato.id}">
-                            <td>${dato.id}</td>
-                            <td>${dato.rol}</td>
-                            <td><a href="#" class="editarRol" style='font-size:17px;border:none;cursor:pointer;color:green;'><i class="fa-solid fa-pen"></i></a></td>
-                            <td><button style='background-color:white;font-size:15px;border:none;cursor:pointer;color:red;'><i id='papelera' class='eliminarRol fa-solid fa-trash'></i></button></td>
-                            <td style="display:none;"><button id="limpiarResult">Limpiar Resultados</button></td>
-                        </tr>`
-                    });
-                    $('#mostrar-rol').html(template);
-                }
-            });
-        }
-
-        $(document).on('click', '.eliminarRol', (e) => {
-            if (confirm('Seguro que quiere eliminar este rol?')) {
-                const element = $(this)[0].activeElement.parentElement.parentElement;
-                const id = $(element).attr('inputId');
-                $.post('eliminarRol.php', { id }, (response) => {
-                    verRol(response);
-                });
-            }
-            e.preventDefault();
-        });
-
-        $(document).on('click', '.editarRol', function(e) {
-            const element = $(this)[0].parentElement.parentElement;
-            const id = $(element).attr('inputId');
-            $.post('ver_single-rol.php', { id }, (response) => {
-                const dato = JSON.parse(response);
-                $('#inputId').val(dato.id);
-                $('#update_rol').val(dato.rol);
-                edit = true;
-            });
-            e.preventDefault();
-        });
-
         //Buscar -----------------------------------------------------------------------------------------------------------------------------------------
-
         //Buscar usuario
         $('#buscarU').keyup(function() {
             if($('#buscarU').val()) {
@@ -453,54 +407,6 @@ $(document).ready(function () {
             }
         });
 
-        //Buscar rol
-        $('#buscarR').keyup(function() {
-            if($('#buscarR').val()) {
-            let buscar = $('#buscarR').val();
-            $.ajax({
-                url: 'buscarRol.php',
-                data: {buscar},
-                type: 'POST',
-                success: function (response) {
-                if(!response.error) {
-                    let datos = JSON.parse(response);
-                    let template = '';
-                    datos.forEach(dato => {
-                    template += `<tr style="color:white;" inputId="${dato.id}">
-                                    <td id="resultadoSearch" style="color:green;">Rol: <a style="color:white;"> ${dato.rol}</a></td>
-                                    <td id="resultadoSearch"><label id="botonVer" for="btn-modal" style="cursor:pointer;"><i class="fa-regular fa-eye"></i></label></td>
-                                </tr>`
-                    });
-                    $('#resultado').show();
-                    $('#contenedor').html(template);
-                }
-                } 
-            })
-            }
-        });
-
-        $('#buscarR').keydown(function() {
-            if($('#buscarR').val()) {
-            let buscar = $('#buscarR').val();
-            $.ajax({
-                url: 'buscarRol.php',
-                data: {buscar},
-                type: 'POST',
-                success: function (response) {
-                if(!response.error) {
-                    let datos = JSON.parse(response);
-                    let template = '';
-                    datos.forEach(dato => {
-                    template += ``
-                    });
-                    $('#resultado').show();
-                    $('#contenedor').html(template);
-                }
-                } 
-            })
-            }
-        });
-
         //Busqueda Usuarios
         //resaltar resultado de busqueda
         $(document).on('click', '#botonVer', function(e) {
@@ -616,36 +522,6 @@ $(document).ready(function () {
                     let template = '';
                     datos.forEach(dato => {
                         $(`.soporteEncontrado_${dato.id}`).removeClass('resaltado');
-                    });
-                }
-            });
-        });
-
-        //Busqueda Roles
-        //resaltar resultado de busqueda
-        $(document).on('click', '#botonVer', function(e) {
-            const element = $(this)[0].parentElement.parentElement;
-            const id = $(element).attr('inputId');
-            $.post('ver_single-rol.php', {id}, (response) => {
-                const dato = JSON.parse(response);
-                $("#btn-modal").click();
-                $('#inputId').val(dato.id);
-                $(`.rolEncontrado_${dato.id}`).addClass('resaltado');
-                self.location.href = `#${dato.rol}_${dato.id}`;
-            });
-            e.preventDefault();
-        });
-
-        //Eliminar filas resaltadas
-        $(document).on('click', '#limpiarResult', function(e) {
-            $.ajax({
-                url: 'verRol.php',
-                type: 'GET',
-                success: function (response) {
-                    const datos = JSON.parse(response);
-                    let template = '';
-                    datos.forEach(dato => {
-                        $(`.rolEncontrado_${dato.id}`).removeClass('resaltado');
                     });
                 }
             });

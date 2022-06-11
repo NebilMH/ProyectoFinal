@@ -19,14 +19,14 @@
             'apellido' => $row['apellido'],     
             'email' => $row['email'],
             'usuario' => $row['usuario'],
-            'contraseña' => $row['contraseña'],
+            'contrasenia' => $row['contrasenia'],
         );
         }
             $jsonstring = json_encode($json);
             mysqli_close($connection);
 ?>
     <h3 style="margin-left: 0%;">USUARIOS</h3><hr>
-    <table class="table table-striped table-bordered"><!--Construimos la tabla que queramos que se vea en el descargable-->
+    <table class="table table-striped table-bordered">
         <tr>
             <th style="border: 1px solid black;background-color:teal;">Id</th>
             <th style="border: 1px solid black;background-color:teal;">Id_Rol</th>

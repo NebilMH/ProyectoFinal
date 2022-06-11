@@ -9,7 +9,9 @@
 <!doctype html>
 <html lang="en">
 	<head>
-	<title>Nabil Messaoudi Hammu</title>
+	<!--<title>Nabil Messaoudi Hammu</title>-->
+	<title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -41,7 +43,7 @@
 		<form action="guardarUsuario.php" method="post" class="signin-form needs-validation" novalidate>
 			<div class="form-group" id="input1">
 				<label style="color:black" for="nombre" class="form-label" id="label"><b>Nombre:</b></label>
-				<input name="nombre" id="nombre" type="text" class="form-control" placeholder="Solo puede contener letras" required maxlength="30" minlength="2" pattern="^[A-Za-z]+$">
+				<input name="nombre" id="nombre" type="text" class="form-control" placeholder="Solo puede contener letras" autofocus required maxlength="30" minlength="2" pattern="^[A-Za-z]+$">
 				<div class="valid-feedback">Correcto</div>
 				<div class="invalid-feedback" small>Nombre incorrecto</div>
 			</div>
@@ -62,17 +64,17 @@
 	
 			<div class="form-group" id="input">
 				<label style="color:black" for="usuario" class="form-label" id="label"><b>Usuario:</b></label>
-				<input name="usuario" id="usuario" type="text" class="form-control" placeholder="Debe contener letras y numeros" required maxlength="15" minlength="5" pattern="^(?=.*?\d)(?=.*?[a-zA-Z])[a-zA-Z\d]+$">
+				<input name="usuario" id="usuario" type="text" class="form-control" placeholder="Debe contener letras y numeros" required maxlength="15" minlength="5">
 				<div class="valid-feedback">Correcto</div>
 				<div class="invalid-feedback">Usuario incorrecto</div>
 			</div>
 	
 			<div class="form-group" id="input">
-				<label style="color:black" for="password-field" class="form-label" id="label"><b>Contraseña:</b></label>
-				<input name="contraseña" id="password-field" type="password" class="form-control" placeholder="Puede incluir cualquier caracter, minimo 8" required maxlength="40" minlength="8">
+				<label style="color:black" for="password-field" class="form-label" id="label"><b>contrasenia:</b></label>
+				<input name="contrasenia" id="password-field" type="password" class="form-control" placeholder="Puede incluir cualquier caracter, minimo 8" required maxlength="40" minlength="5">
 				<span toggle="#password-field" class="fa fa-eye toggle-password" id="ojo"></span>
 				<div class="valid-feedback">Correcto</div>
-				<div class="invalid-feedback">Contraseña incorrecta</div>
+				<div class="invalid-feedback">contrasenia incorrecta</div>
 			</div>
 	
 			<div >

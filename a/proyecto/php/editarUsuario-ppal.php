@@ -1,29 +1,25 @@
 <?php
     include('conexionBD.php');
 
-    if(isset($_POST['id'])) {
-        $id = $_POST['id'];
-        $seccion = $_POST['Eseccion'];
-        $nombre_producto = $_POST['Enombre_producto'];
-        $descripcion = $_POST['Edescripcion'];
-        $precio = $_POST['Eprecio'];
-        $imagen = $_POST['Eimagen'];
+    session_start();
 
-        $query = "UPDATE productos SET seccion= '$seccion', nombre_producto= '$nombre_producto', descripcion= '$descripcion', precio= '$precio', imagen= '$imagen' WHERE id= '$id'"; 
-        $result = mysqli_query($connection, $query);
+    if(isset($_SESSION['id'])) {
+        $id = $connection->real_escape_string($_SESSION['id']);
+        $nombre = $connection->real_escape_string($_POST['Enombre']); 
+        $apellido = $connection->real_escape_string($_POST['Eapellido']);
+        $email = $connection->real_escape_string($_POST['Eemail']);
+        $usuario = $connection->real_escape_string($_POST['Eusuario']);
+        $contrasenia = $connection->real_escape_string($_POST['Econtrasenia']);
+        $hash = password_hash($contrasenia, PASSWORD_BCRYPT);
 
-        if (!$result) {
-            die('Consulta fallida.');
-        }
+        if($nombre && $apellido && $email && $usuario && $contrasenia){
+            $query = "UPDATE usuarios SET nombre= '$nombre', apellido= '$apellido', email= '$email', usuario= '$usuario', contrasenia= '$hash' WHERE id= '$id'"; 
+            $result = mysqli_query($connection, $query);
 
-        // header("refresh:0;url=admin-usuarios.php");
-        // echo "<script>alert('Usuario editado correctamente');</script>";
-
-        /*echo "<script type='text/javascript'>
-                window.location.href = 'admin-usuarios.php' ;
-            </script>
-        ";*/
-?> 
+            if (!$result) {
+                die('Consulta fallida.');
+            }
+?>
 <!doctype html>
     <html lang="en">
         <head>
@@ -51,10 +47,11 @@
                                 <div class="login-wrap p-4 p-md-5">
                                     <div class="d-flex">
                                         <div class="w-100">
-                                            <h4 class="mb-4">Producto editado correctamente</h4>
+                                            <h4 class="mb-4">Tus datos se han editado correctamente</h4>
+                                            <p>Debes volver a iniciar sessión.</p>
                                         </div>
                                     </div>
-                                    <button type="submit" ONCLICK="window.location.href= 'admin-usuarios.php'" class="form-control btn rounded submit px-3">Aceptar</button>
+                                    <button type="submit" ONCLICK="window.location.href= '../index.php'" class="form-control btn rounded submit px-3">Aceptar</button>
                                 </div>
                             </div>
                         </div>
@@ -70,11 +67,12 @@
         </body>
     </html>
 
-<?php       
-    } else {
-        header("refresh:0;url=admin-productos.php");
+<?php
+        session_destroy();
+
+        } else {
+            header("refresh:0;url=../index.php");
+        }
     }
-        mysqli_close($connection);
+    mysqli_close($connection); 
 ?>
-
-

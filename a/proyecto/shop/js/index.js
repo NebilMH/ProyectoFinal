@@ -46,7 +46,7 @@ $(document).ready(function () {
 
                             <div class="icons">
                                 <a id="heart" href="#" class="fa fa-heart"></a>
-                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:5px;height:40px;margin-top:5px;font-size:18px;" type="submit" class="fa fa-shopping-cart"></button>
+                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:4px;height:35px;margin-top:5px;font-size:15px;" type="submit" class="fa fa-shopping-cart"></button>
                             </div>
                             <div class="content">
                                 <img src="../images/productos/${dato.imagen}" alt="">
@@ -86,7 +86,7 @@ $(document).ready(function () {
 
                             <div class="icons">
                                 <a id="heart" href="#" class="fa fa-heart"></a>
-                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:5px;height:40px;margin-top:5px;font-size:18px;" type="submit" href="#" class="fa fa-shopping-cart"></button>
+                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:4px;height:35px;margin-top:5px;font-size:15px;" type="submit" href="#" class="fa fa-shopping-cart"></button>
                             </div>
                             <div class="content">
                                 <img src="../images/productos/${dato.imagen}" alt="">
@@ -126,7 +126,7 @@ $(document).ready(function () {
 
                             <div class="icons">
                                 <a id="heart" href="#" class="fa fa-heart"></a>
-                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:5px;height:40px;margin-top:5px;font-size:18px;" type="submit" href="#" class="fa fa-shopping-cart"></button>
+                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:4px;height:35px;margin-top:5px;font-size:15px;" type="submit" href="#" class="fa fa-shopping-cart"></button>
                             </div>
                             <div class="content">
                                 <img src="../images/productos/${dato.imagen}" alt="">
@@ -166,7 +166,7 @@ $(document).ready(function () {
 
                             <div class="icons">
                                 <a id="heart" href="#" class="fa fa-heart"></a>
-                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:5px;height:40px;margin-top:5px;font-size:18px;" type="submit" href="#" class="fa fa-shopping-cart"></button>
+                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:4px;height:35px;margin-top:5px;font-size:15px;" type="submit" href="#" class="fa fa-shopping-cart"></button>
                             </div>
                             <div class="content">
                                 <img src="../images/productos/${dato.imagen}" alt="">
@@ -207,7 +207,7 @@ $(document).ready(function () {
 
                             <div class="icons">
                                 <a id="heart" href="#" class="fa fa-heart"></a>
-                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:5px;height:40px;margin-top:5px;font-size:18px;" type="submit" class="fa fa-shopping-cart"></button>
+                                <button aria-label="cart button" id="cart" style="background-color:transparent;border:1px solid black;border-radius:4px;height:35px;margin-top:5px;font-size:15px;" type="submit" class="fa fa-shopping-cart"></button>
                             </div>
                             <div class="content">
                                 <img src="../images/productos/${dato.imagen}" alt="">
@@ -228,33 +228,24 @@ $(document).ready(function () {
             }
         });
 
-        /* $.ajax({//Este script de ajax es para mostrar los productos en el slider/banner
-            url: '../php/ver-producto-tienda-slider.php', //le pasamos la url del archivo php que extrae los datos de la base de datos por medio de consultas
-            type: 'GET', //Indicamos el método a utilizar, POST para enviar o GET en este caso para recibir
-            
-            success: function (response) {
-                const datos = JSON.parse(response); // Analiza una cadena de texto como JSON, transformando el valor producido por el análisis a JSON
-                let template = ''; //Creamos una variable template vacia, a la que añadiremos las filas de la tabla con los datos
-                datos.forEach(dato => {//El form siguiente, lo utilizo para que cuando el boton de carrito sea accionado envie los datos al carrito del producto y lo pueda listar
-                    template += `
-                        <form class="box" action="../php/carrito.php" method="post">
-                            <div class="slide-container">
-                                <div class="slide">
-                                    <div class="content">
-                                        <span>${dato.seccion}</span>
-                                        <h3>${dato.nombre_producto}</h3>
-                                        <p>${dato.descripcion}</p>
-                                    </div>
-                                    <div class="image">
-                                        <img alt="Imagen2" src="../images/productos/${dato.imagen}" class="protein">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>`;
-                }); //Estos son los datos a mostrar
-                    $('#mostrar-producto-tienda-slider').append(template);
-                 //Los datos que se muestren apareceran en la parte que contenga la id #mostrar
+        //Boton cargar mas
+        // slice is choosing the first 2 instances of "Box-hidden" and showing them
+        $(".product").slice(0, 1).show();
+        // if there are Box-Hidden set to display:none (hidden) then show the loadMore button 
+        if ($(".product:hidden").length != 0) {
+            $("#loadMore").show();
+        }
+        $("#loadMore").on('click', function(e) {
+            e.preventDefault();
+            $(".product:hidden").slice(0, 1).slideDown();
+            // if there are no more hidden Box-Hidden's then hide the loadMore button
+            if ($(".product:hidden").length == 0) {
+                $("#loadMore").fadeOut('slow');
             }
-        }); */
+            // This is not related to the show more, this just brings you back up the page
+            $('html,body').animate({
+                scrollTop: $(this).offset().top
+            }, 1000);
+        });
     }
 })

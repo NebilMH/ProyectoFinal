@@ -40,14 +40,6 @@
                                 <div class="login-wrap p-4 p-md-5">
                                     <div class="d-flex">
                                         <div class="w-100">
-                                            <ul class="list">
-                                                <div>
-                                                    <button class="switch" id="switch">
-                                                        <span><i class="fas fa-sun"></i></span>
-                                                        <span><i class="fas fa-moon"></i></span>
-                                                    </button>
-                                                </div>
-                                            </ul>
                                             <h4 class="mb-4">Rol editado correctamente</h4>
                                         </div>
                                     </div>

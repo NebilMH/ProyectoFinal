@@ -4,8 +4,9 @@
 
     session_start();
 
-    if(isset($_SESSION['usuario']) && $_SESSION['usuario'] == "Admin") {
+    if(isset($_SESSION['id_rol']) && $_SESSION['id_rol'] == "1") {
         $usuario = $_SESSION['usuario'];
+        $id_rol = $_SESSION['id_rol'];
     } else {
         header("Location: login.php");
     }
@@ -16,12 +17,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <link rel="stylesheet" href="../css/estilos-admin.css">
     <script src="https://kit.fontawesome.com/9ba7b80b84.js" crossorigin="anonymous"></script>
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="../css/responsive-principal.css">
 
     <!-- Estilos boton modo oscuro -->
     <script src="https://kit.fontawesome.com/9ba7b80b84.js" crossorigin="anonymous"></script>
@@ -46,7 +46,6 @@
                 <a href="admin-productos.php">Productos</a>
                 <a href="admin-ejercicios.php">Ejercicios</a>
                 <a href="admin-soporte.php">Soporte</a>
-                <a href="admin-roles.php">Roles</a>
                 <a href="../index.php">Inicio</a>
                 <a href="../shop/index.php">Tienda</a>
                 <a class="botondm">
@@ -56,7 +55,7 @@
             </nav>
             <h1>
                 <!--<a href="#"><i ONCLICK="window.location.href= 'login.html'" class="fa fa-user"></i> <?php /*if(isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}*/?></a>-->
-                <form action='php/perfil-usuario.php' method='POST' name='formulario'>
+                <form action='php/perfil-usuario-ppal.php' method='POST' name='formulario'>
                 <?php 
                         if(isset($_SESSION['usuario']) && $_SESSION['usuario'] == "Admin") { //Si la sesion es de administrador, al hacer click en el nombre de usuario nos llevara a la pagina de administrador, tambien aparece el boron de cerrar sesion
                             echo "
@@ -93,7 +92,7 @@
                         <div>Apellido: <input id="create_apellido" name="Capellido" type="text"/></div>
                         <div>Email: <input id="create_email" name="Cemail" type="text" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"/></div>
                         <div>Usuario: <input id="create_usuario" name="Cusuario" type="text"></div>
-                        <div>Contraseña: <input id="create_contraseña" name="Ccontraseña" type="text"></div><br>
+                        <div>contrasenia: <input id="create_contrasenia" name="Ccontrasenia" type="text"></div><br>
                         <button type="submit" class="editUser">Crear Usuario</button>
                     </ul>
                 </form>
@@ -106,7 +105,7 @@
                         <div>Apellido: <input id="update_apellido" name="Eapellido" type="text"/></div>
                         <div>Email: <input id="update_email" name="Eemail" type="text" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"/></div>
                         <div>Usuario: <input id="update_usuario" name="Eusuario" type="text"></div>
-                        <div>Contraseña: <input id="update_contraseña" name="Econtraseña" type="text"></div><br>
+                        <div>contrasenia: <input id="update_contrasenia" name="Econtrasenia" type="text"></div><br>
                         <button type="submit" class="editUser">Actualizar Usuario</button>
                     </ul>
                 </form>
@@ -121,7 +120,7 @@
                             <td style="background-color: #3cc0b5;"><b>Apellido</b></td>
                             <td style="background-color: #3cc0b5;" id="idEmail"><b>Email</b></td>
                             <td style="background-color: #3cc0b5;"><b>Usuario</b></td>
-                            <td style="background-color: #3cc0b5;" id="idPass"><b>Contraseña</b></td>
+                            <td style="background-color: #3cc0b5;" id="idPass"><b>contrasenia</b></td>
 
                             <input type="checkbox" id="btn-modal">
                             <td><label for="btn-modal" class="lbl-modal" id="lupa" style="color:darkblue;"><i class="fa-solid fa-magnifying-glass"></i></label></td>

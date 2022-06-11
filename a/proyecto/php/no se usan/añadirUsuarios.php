@@ -6,11 +6,11 @@
         $apellido = $connection->real_escape_string($_POST['apellido']);
         $email = $connection->real_escape_string($_POST['email']);
         $usuario = $connection->real_escape_string($_POST['usuario']);
-        $contraseña = $connection->real_escape_string($_POST['contraseña']);
+        $contrasenia = $connection->real_escape_string($_POST['contrasenia']);
 
 		//Si los campos no estan vacios ejecuta la consulta, (esto se comprueba directamente en html con la validacion de bootstrap)
-        $query = "INSERT INTO usuarios (nombre, apellido, email, usuario, contraseña)
-        VALUES ('$nombre', '$apellido', '$email', '$usuario', '$contraseña')";
+        $query = "INSERT INTO usuarios (nombre, apellido, email, usuario, contrasenia)
+        VALUES ('$nombre', '$apellido', '$email', '$usuario', '$contrasenia')";
 
         $result = mysqli_query($connection, $query);
 
@@ -47,14 +47,6 @@
 							<div class="login-wrap p-4 p-md-5">
 								<div class="d-flex">
 									<div class="w-100">
-										<ul class="list">
-											<div>
-												<button class="switch" id="switch">
-													<span><i class="fas fa-sun"></i></span>
-													<span><i class="fas fa-moon"></i></span>
-												</button>
-											</div>
-										</ul>
 										<h4 class="mb-4">Usuario añadido correctamente</h4>			
 									</div>
 								</div>

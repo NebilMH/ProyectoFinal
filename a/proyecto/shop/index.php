@@ -23,7 +23,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nabil Messaoudi Hammu</title>
+    <!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo </title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/estilos-tienda.css">
@@ -38,23 +40,6 @@
     <!-- Estilos Dark Mode -->
     <script src="https://kit.fontawesome.com/9ba7b80b84.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/estilos-boton.css">
-
-    <style>
-        .bocadillo{
-            border-radius: 5px;
-            background-color: red;
-            color: white;
-            width: 230px;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 2em;
-            text-align: center;
-            padding-top: 15px;
-            margin: auto;
-            text-transform: uppercase;
-            padding-bottom: 6px;
-            border: 2px solid white;
-        }
-    </style>
 
     </head>
     <body>
@@ -80,7 +65,7 @@
             </nav>
             <div class="icons">
                 <!--<a href="#" style="text-transform: none; color:darkcyan;"><i ONCLICK="window.location.href= '../php/login.php'" class="fa fa-user"></i> <?php if(isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}?></a>-->
-                <form action='../php/perfil-usuario.php' method='POST' name='formulario'>
+                <form action='../php/perfil-usuario-tienda.php' method='POST' name='formulario'>
                 <?php 
                         if(isset($_SESSION['usuario']) && $_SESSION['usuario'] == "Admin") {//Si la sesion es de administrador, al hacer click en el nombre de usuario nos llevara a la pagina de administrador, tambien aparece el boron de cerrar sesion
                             echo "
@@ -170,12 +155,12 @@
         ?>
         
         <!--Ultimos productos ---------------------------------------------------------------------------------------->
-
+        
         <section class="product" id="fearured">
             <h1 class="heading">Nuevos <span>Productos</span></h1>
             <div class="box-container" id='mostrar-producto-tienda-new'></div>
         </section>
-
+        
         <section class="product" id="product">
             <h1 class="heading">Productos <span>Destacados</span></h1>
             <div class="box-container" id="mostrar-producto-tienda-last"></div>
@@ -185,7 +170,7 @@
             <h1 class="heading">Packs de <span>Productos</span></h1>
             <div class="box-container" id="mostrar-producto-tienda-packs"></div>
         </section>
-
+        
         <section class="product" id="shakers">
             <h1 class="heading">Nuestros <span>Shakers</span></h1>
             <div class="box-container" id="mostrar-producto-tienda-shakers"></div>
@@ -194,6 +179,10 @@
         <section class="product" id="barritas">
             <h1 class="heading">Barritas <span>energéticas</span></h1>
             <div class="box-container" id="mostrar-producto-tienda-barritas"></div>
+        </section>
+
+        <section class="product" id="sectionLoadMore">
+                <h5 id="botonMas"><a id="loadMore"><i class="fa-solid fa-arrow-down"></i> Cargar mas <i class="fa-solid fa-arrow-down"></i></a></h5>
         </section>
 
         <section >
@@ -282,34 +271,6 @@
         <script src="../js/jquery.min.js"></script>
         <script src="../js/main-boton.js"></script>
         <script src="js/index.js"></script>
-        <script>
-            $.ajax({//Este script de ajax es para mostrar los productos en el slider/banner
-            url: '../php/ver-producto-tienda-slider.php', //le pasamos la url del archivo php que extrae los datos de la base de datos por medio de consultas
-            type: 'GET', //Indicamos el método a utilizar, POST para enviar o GET en este caso para recibir
-            
-            success: function (response) {
-                const datos = JSON.parse(response); // Analiza una cadena de texto como JSON, transformando el valor producido por el análisis a JSON
-                let template = ''; //Creamos una variable template vacia, a la que añadiremos las filas de la tabla con los datos
-                datos.forEach(dato => {//El form siguiente, lo utilizo para que cuando el boton de carrito sea accionado envie los datos al carrito del producto y lo pueda listar
-                    template += `
-                            <div class="slide-container">
-                                <div class="slide">
-                                    <div class="content">
-                                        <span>${dato.seccion}</span>
-                                        <h3>${dato.nombre_producto}</h3>
-                                        <p>${dato.descripcion}</p>                  
-                                    </div>
-                                    <div class="image">
-                                        <img src="../images/productos/${dato.imagen}" class="protein">
-                                    </div>
-                                </div>
-                            </div>`;
-                }); //Estos son los datos a mostrar
-                    $('#mostrar-producto-tienda-slider').html(template);
-                 //Los datos que se muestren apareceran en la parte que contenga la id #mostrar
-            }
-        });
-        </script>
     </body>
 </html>
 

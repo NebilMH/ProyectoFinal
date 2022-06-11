@@ -11,19 +11,17 @@
         header("Location: login.php");
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <link rel="stylesheet" href="../css/estilos-admin.css">
     <script src="https://kit.fontawesome.com/9ba7b80b84.js" crossorigin="anonymous"></script>
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="../css/responsive-principal.css">
 
     <!-- Estilos boton modo oscuro -->
     <script src="https://kit.fontawesome.com/9ba7b80b84.js" crossorigin="anonymous"></script>
@@ -48,7 +46,6 @@
                 <a href="admin-usuarios.php">Usuarios</a>
                 <a href="admin-productos.php">Productos</a>
                 <a href="admin-ejercicios.php">Ejercicios</a>
-                <a href="admin-roles.php">Roles</a>
                 <a href="../index.php">Inicio</a>
                 <a href="../shop/index.php">Tienda</a>
                 <a class="botondm">
@@ -58,7 +55,7 @@
             </nav>
             <h1>
                 <!--<a href="#"><i ONCLICK="window.location.href= 'login.html'" class="fa fa-user"></i> <?php /*if(isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}*/?></a>-->
-                <form action='perfil-usuario.php' method='POST' name='formulario'>
+                <form action='perfil-usuario-ppal.php' method='POST' name='formulario'>
                 <?php 
                         if(isset($_SESSION['usuario']) && $_SESSION['usuario'] == "Admin") { //Si la sesion es de administrador, al hacer click en el nombre de usuario nos llevara a la pagina de administrador, tambien aparece el boron de cerrar sesion
                             echo "

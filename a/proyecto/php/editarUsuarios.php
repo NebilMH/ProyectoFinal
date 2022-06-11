@@ -1,30 +1,32 @@
 <?php
     include('conexionBD.php');
 
-    if(isset($_SESSION['id'])) {
-        $id = $connection->real_escape_string($_SESSION['id']);
+    session_start();
+
+    if(isset($_POST['id'])) {
+        $id = $connection->real_escape_string($_POST['id']);
         $id_rol = $connection->real_escape_string($_POST['Eid_rol']);
         $nombre = $connection->real_escape_string($_POST['Enombre']); 
         $apellido = $connection->real_escape_string($_POST['Eapellido']);
         $email = $connection->real_escape_string($_POST['Eemail']);
         $usuario = $connection->real_escape_string($_POST['Eusuario']);
-        $contraseña = $connection->real_escape_string($_POST['Econtraseña']);
-        $hash = password_hash($contraseña, PASSWORD_BCRYPT);
+        $contrasenia = $connection->real_escape_string($_POST['Econtrasenia']);
+        $hash = password_hash($contrasenia, PASSWORD_BCRYPT);
 
-        if($id_rol && $nombre && $apellido && $email && $usuario && $contraseña){
-            $query = "UPDATE usuarios SET id_rol= '$id_rol', nombre= '$nombre', apellido= '$apellido', email= '$email', usuario= '$usuario', contraseña= '$hash' WHERE id= '$id'"; 
+        if($id_rol && $nombre && $apellido && $email && $usuario && $contrasenia){
+            $query = "UPDATE usuarios SET id_rol= '$id_rol', nombre= '$nombre', apellido= '$apellido', email= '$email', usuario= '$usuario', contrasenia= '$hash' WHERE id= '$id'"; 
             $result = mysqli_query($connection, $query);
 
             if (!$result) {
                 die('Consulta fallida.');
             }
-            //echo "Usuario editado correctamente";
-            //header("refresh:0;url=../admin.html");
 ?>
 <!doctype html>
     <html lang="en">
         <head>
-        <title>Nabil Messaoudi Hammu</title>
+        <!--<title>Nabil Messaoudi Hammu</title>-->
+        <title>Gym Contigo</title>
+        <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -46,14 +48,6 @@
                                 <div class="login-wrap p-4 p-md-5">
                                     <div class="d-flex">
                                         <div class="w-100">
-                                            <ul class="list">
-                                                <div>
-                                                    <button class="switch" id="switch">
-                                                        <span><i class="fas fa-sun"></i></span>
-                                                        <span><i class="fas fa-moon"></i></span>
-                                                    </button>
-                                                </div>
-                                            </ul>
                                             <h4 class="mb-4">Usuario editado correctamente</h4>
                                         </div>
                                     </div>

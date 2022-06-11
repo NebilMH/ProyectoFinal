@@ -24,14 +24,6 @@
 						<div class="login-wrap p-4 p-md-5">
 			<div class="d-flex">
 			<div class="w-100">
-				<ul class="list">
-					<div>
-						<button class="switch" id="switch"><a style="color: transparent;">.</a>
-							<span><i class="fas fa-sun"></i></span>
-							<span><i class="fas fa-moon"></i></span>
-						</button>
-					</div>
-				</ul>
 			<h3 class="mb-4">Instalador</h3>	
 					
 			</div>
@@ -48,8 +40,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password-field" style="color:black;">Contraseña Base de Datos:</label>
-                        <input id="password-field" name="contraseña" type="text" value="debianDB" class="form-control" readonly>
+                        <label for="password-field" style="color:black;">contrasenia Base de Datos:</label>
+                        <input id="password-field" name="contrasenia" type="text" value="debianDB" class="form-control" readonly>
                     </div>
 
                     <div class="form-group">

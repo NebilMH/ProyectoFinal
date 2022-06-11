@@ -4,6 +4,11 @@ body{
     font-weight:bold;
 }
 
+iframe {
+    width: 1000px; 
+    height: 510px;
+}
+
 .video {
     color: white;
     margin-bottom: 100px;
@@ -75,14 +80,13 @@ header .navbar a:hover{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2em;
     text-align: center;
-    padding-top: 11px;
-    margin: auto;
+    padding-top: 20px;
+    margin: -15px auto auto auto;
     text-transform: uppercase;
-    padding-bottom: 3px;
-    font-weight: bold;
+    border: 2px solid white;
 }
 
-@media (max-width:886px){
+@media (max-width:900px){
     #menu-bar{
         display: block;
     }

@@ -24,14 +24,6 @@
 						<div class="login-wrap p-4 p-md-5">
 			<div class="d-flex">
 			<div class="w-100">
-				<ul class="list">
-					<div>
-						<button class="switch" id="switch"><a style="color: transparent;">.</a>
-							<span><i class="fas fa-sun"></i></span>
-							<span><i class="fas fa-moon"></i></span>
-						</button>
-					</div>
-				</ul>
 			<h3 class="mb-4">Instalación exitosa!</h3>	
 				<p>Aqui tiene sus credenciales de administrador:</p>
 			</div>
@@ -42,7 +34,7 @@
                 </div>
 
                 <div class="form-group mt-5">
-                    <label for="email" style="color:black;">Contraseña:</label>
+                    <label for="email" style="color:black;">contrasenia:</label>
                     <input name="email" id="email" type="text" value="admin" class="form-control" readonly>
                 </div>
 

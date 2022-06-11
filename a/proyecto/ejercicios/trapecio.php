@@ -17,14 +17,15 @@
     }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nabil Messaoudi Hammu</title>
+    <!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo </title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -41,24 +42,6 @@
     <!-- Estilos Footer -->
     <link rel="stylesheet" href="../css/ionicons.min.css">
     <link rel="stylesheet" href="../css/style-footer.css">
-
-    <style>
-        .bocadillo{
-            border-radius: 5px;
-            background-color: red;
-            color: white;
-            width: 230px;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 2em;
-            text-align: center;
-            padding-top: 11px;
-            margin: auto;
-            text-transform: uppercase;
-            padding-bottom: 3px;
-            font-weight: bold;
-        }
-    </style>
-
 </head>
 <body>
     <!--<header>
@@ -99,7 +82,7 @@
             </nav>
             <h1>
                 <!--<a href="#"><i ONCLICK="window.location.href= 'login.html'" class="fa fa-user"></i> <?php /*if(isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}*/?></a>-->
-                <form action='../php/perfil-usuario.php' method='POST' name='formulario'>
+                <form action='../php/perfil-usuario-ppal.php' method='POST' name='formulario'>
                 <?php 
                         if(isset($_SESSION['usuario']) && $_SESSION['usuario'] == "Admin") {
                             echo "
@@ -123,21 +106,31 @@
         </div>
     </header>
     
+    <?php
+        include("../php/conexionBD.php");
+        $currentFile = basename(__FILE__);
+
+        $query="SELECT * FROM ejercicios WHERE urlP='$currentFile'"; 
+        $result = mysqli_query($connection, $query);
+
+        $contador = 0;
+        while(($contador < 1) && ($row = mysqli_fetch_array($result))){
+    ?>
+    
     <div class="video"> 
         <div class="content">
-            <h3>Ejercicio - Trapecio</h3>
-            <p>
-                El trapecio es uno de los músculos de la espalda superior. Es un músculo triangular grande que va desde 
-                el hueso occipital en el cráneo hasta el final de la columna torácica en la espalda. Se extiende a lo 
-                ancho de los hombros. El músculo se divide en tres secciones: superior, media e inferior.
-            </p>
+            <h3>Ejercicio - <?php echo $row['titulo']; ?></h3>
+            <p><?php echo $row['descripcion']; ?></p>
         </div>
         <div class="image-container">
             <div class="big-image">
-                <iframe width="1000" height="510" src="https://www.youtube.com/embed/Jr-ZOAJNKCs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <?php echo $row['urlV']; ?>
             </div>
         </div>
     </div>
+    <?php
+        }
+    ?>
 
     <div>
         <footer id="footer" class="footer">

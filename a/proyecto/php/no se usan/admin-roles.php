@@ -57,7 +57,7 @@
             </nav>
             <h1>
                 <!--<a href="#"><i ONCLICK="window.location.href= 'login.html'" class="fa fa-user"></i> <?php /*if(isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}*/?></a>-->
-                <form action='php/perfil-usuario.php' method='POST' name='formulario'>
+                <form action='php/perfil-usuario-ppal.php' method='POST' name='formulario'>
                 <?php 
                         if(isset($_SESSION['usuario']) && $_SESSION['usuario'] == "Admin") { //Si la sesion es de administrador, al hacer click en el nombre de usuario nos llevara a la pagina de administrador, tambien aparece el boron de cerrar sesion
                             echo "

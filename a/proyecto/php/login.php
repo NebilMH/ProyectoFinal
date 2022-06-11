@@ -9,7 +9,9 @@
 <!doctype html>
 <html lang="en">
 	<head>
-	<title>Nabil Messaoudi Hammu</title>
+	<!--<title>Nabil Messaoudi Hammu</title>-->
+	<title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -39,12 +41,12 @@
 		<form action="comprobarLogin.php" method="post" class="signin-form">
 			<div class="form-group mt-5">
 				<label for="email" style="color:black;font-weight:bold;">Email:</label>
-				<input name="email" id="email" type="text" class="form-control" required>
+				<input name="email" id="email" type="text" class="form-control" autofocus required>
 			</div>
 
 			<div class="form-group">
-				<label for="password-field" style="color:black;font-weight:bold;">Contraseña:</label>
-				<input id="password-field" name="contraseña" type="password" class="form-control" required>
+				<label for="password-field" style="color:black;font-weight:bold;">contrasenia:</label>
+				<input id="password-field" name="contrasenia" type="password" class="form-control" required>
 				<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 			</div>
 
@@ -54,7 +56,7 @@
 
 			<div class="form-group d-md-flex">
 				<div class="w-100 text-md-right">
-					<a href="olvidar-contraseña.php" style="color:black;">Olvidé mi contraseña</a>
+					<a href="olvidar-contrasenia.php" style="color:black;">Olvidé mi contrasenia</a>
 				</div>
 			</div>
 		</form>

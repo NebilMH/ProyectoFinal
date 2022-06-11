@@ -2,7 +2,7 @@
 
 	"use strict";
 
-	$(".toggle-password").click(function() {//Este script sirve para que podamos mostrar y ocultar la contraseña de los formularios con el boton en forma de ojo
+	$(".toggle-password").click(function() {//Este script sirve para que podamos mostrar y ocultar la contrasenia de los formularios con el boton en forma de ojo
 
   $(this).toggleClass("fa-eye fa-eye-slash");
   var input = $($(this).attr("toggle"));

@@ -2,9 +2,9 @@
     /* include('conexionBD.php');
 
 	$email = $connection->real_escape_string($_POST['email']);
-    $contraseña = $connection->real_escape_string($_POST['contraseña']);
+    $contrasenia = $connection->real_escape_string($_POST['contrasenia']);
 
-    $query="SELECT * FROM usuarios WHERE email='$email' and contraseña='$contraseña'"; 
+    $query="SELECT * FROM usuarios WHERE email='$email' and contrasenia='$contrasenia'"; 
 
     $resultado = mysqli_query($connection, $query) or die ('Error en el query database'); */
 
@@ -28,7 +28,7 @@
         </script>
         <form method="POST" name="formulario">
             <input type="hidden" name="email" value="<?php /* echo $_POST["email"]; */?>">
-            <input type="hidden" name="contraseña" value="<?php /* echo $_POST["contraseña"]; */?>">
+            <input type="hidden" name="contrasenia" value="<?php /* echo $_POST["contrasenia"]; */?>">
         </form>
         </body>
     </html>
@@ -48,7 +48,7 @@
         </script>
         <form method="POST" name="formulario">
             <input type="hidden" name="email" value="<?php /* echo $_POST["email"]; */?>">
-            <input type="hidden" name="contraseña" value="<?php /* echo $_POST["contraseña"]; */?>">
+            <input type="hidden" name="contrasenia" value="<?php /* echo $_POST["contrasenia"]; */?>">
         </form>
         </body>
     </html>

@@ -24,8 +24,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nabil Messaoudi Hammu</title>
-
+    <!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo </title>
+    <link rel="icon" type="image/x-icon" href="images/favicon3.png">
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -47,23 +49,6 @@
     <!-- Estilos Footer -->
     <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/style-footer.css">
-
-    <style>
-        .bocadillo{
-            border-radius: 5px;
-            background-color: red;
-            color: white;
-            width: 230px;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 2em;
-            text-align: center;
-            padding-top: 8px;
-            margin: auto;
-            text-transform: uppercase;
-            border: 2px solid white;
-        }
-    </style>
-
 </head>
 <body>
     <!-- Barra de navegacion 
@@ -81,12 +66,6 @@
                         <li><a ONCLICK="window.location.href= 'sign.html'" class="button_slide slide_left">Registrarse</a></li>
                         <li><a ONCLICK="window.location.href= 'login.html'" class="button_slide slide_left">Iniciar Sesión</a></li>
                         <li class="lista fa fa-user"><a href="#" id="perfil"></a></span>
-                        <li>
-                            <button class="switch" id="switch">
-                                <span><i class="fas fa-sun"></i></span>
-                                <span><i class="fas fa-moon"></i></span>
-                            </button>
-                        </li>
                     </ul>
                 </div>
     </nav>-->
@@ -97,8 +76,8 @@
         <div class="header">
             <div id="menu-bar" class="fa fa-bars"></div>
                 <!--<a href="#" class="logo" style="font-weight: bold;"><img src="images/logo2.png" alt="">  -->
-                <a href="#" class="logo" style="font-weight: bold;font-size:20px;text-transform: uppercase;"><i class="fa-solid fa-dumbbell"></i> Gym Contigo</a>
-            <nav class="navbar" style="text-transform: uppercase;">
+                <a href="#" id="logo" class="logo" style="font-weight: bold;text-transform: uppercase;"><i class="fa-solid fa-dumbbell"></i> Gym Contigo</a>
+            <nav id="navbar" class="navbar" style="text-transform: uppercase;">
                 <a href="shop/index.php">Tienda</a>
                 <a href="#footer">Contacto</a>
                 <a class="botondm">
@@ -108,12 +87,12 @@
             </nav>
             <h1>
                 <!--<a href="#"><i ONCLICK="window.location.href= 'login.html'" class="fa fa-user"></i> <?php /*if(isset($_SESSION['usuario'])){ echo $_SESSION['email'];}*/?></a>-->
-                <form action='php/perfil-usuario.php' method='POST' name='formulario'>
+                <form action='php/perfil-usuario-ppal.php' method='POST' name='formulario'>
                     <?php 
                             if(isset($_SESSION['usuario']) && $_SESSION['usuario'] == "Admin") { //Si la sesion es de administrador, al hacer click en el nombre de usuario nos llevara a la pagina de administrador, tambien aparece el boron de cerrar sesion
                                 echo "
-                                    <a href='php/admin-usuarios.php' style='font-size:20px;background-color:transparent;color:darkcyan;font-weight:bold;text-trnsform:none;font-family:Georgia, 'Times New Roman', Times, serif;'><i class='usuario fa fa-user'></i> ".$_SESSION['usuario']."</a>
-                                    <a aria-label='cerrarS button' style='font-size:20px;margin-left:10px;' href='php/cerrar-sesion.php'><i style='color:red;' class='closeS fa fa-sign-out' aria-hidden='true'></i></a>
+                                    <a id='usuarioPpal' href='php/admin-usuarios.php' style='background-color:transparent;color:darkcyan;font-weight:bold;text-trnsform:none;font-family:Georgia, 'Times New Roman', Times, serif;'><i class='usuario fa fa-user'></i> ".$_SESSION['usuario']."</a>
+                                    <a id='usuarioPpalS' aria-label='cerrarS button' style='margin-left:10px;' href='php/cerrar-sesion.php'><i style='color:red;' class='closeS fa fa-sign-out' aria-hidden='true'></i></a>
                                 ";
                             } else if (isset($_SESSION['invitado'])) { //Si la sesion es de invitado, se ocultaran botones, como carrito, favoritos y cerrar sesion, y solo se muestra el de iniciar sesion
                                 echo "<a href='php/login.php'><i class='fa fa-user'></i></a>";
@@ -122,9 +101,9 @@
                                 echo "
                                     <input type='hidden' name='id' value='".$_SESSION['id']."'>
                                     <button type='submit' style='background-color:transparent'>
-                                        <a style='font-size:20px;background-color:transparent;color:darkcyan;font-weight:bold;text-trnsform:none;font-family:Georgia, 'Times New Roman', Times, serif;'><i class='usuario fa fa-user'></i> ".$_SESSION['usuario']."</a>
+                                        <a id='usuarioPpal' style='background-color:transparent;color:darkcyan;font-weight:bold;text-trnsform:none;font-family:Georgia, 'Times New Roman', Times, serif;'><i class='usuario fa fa-user'></i> ".$_SESSION['usuario']."</a>
                                     </button>
-                                    <a aria-label='cerrarS button' style='font-size:20px;' href='php/cerrar-sesion.php'><i style='color:red;' class='closeS fa fa-sign-out' aria-hidden='true'></i></a>
+                                    <a id='usuarioPpalS' aria-label='cerrarS button' href='php/cerrar-sesion.php'><i style='color:red;' class='closeS fa fa-sign-out' aria-hidden='true'></i></a>
                                 ";
                             } 
                     ?>
@@ -148,13 +127,12 @@
 				<div class="row">
 					<div class="col-md-12">
                     <a href="shop/index.php"><h3 id="productosppal">VISITA NUESTRA TIENDA <i class="fa-solid fa-basket-shopping"></i></h3></a>
-						<div id="myCarousel" class="featured-carousel owl-carousel">
+						<div id="myCarousel" class="featured-carousel owl-carousel owl-theme">
                             <?php
                                 include("php/conexionBD.php");
                                 $query="SELECT * FROM productos ORDER BY id DESC LIMIT 7"; 
                                 $result = mysqli_query($connection, $query);
                                 
-                                $contador = 0;
                                 while($row = mysqli_fetch_array($result)){
                             ?>
                                 <div class="item">

@@ -5,9 +5,9 @@
 
 <?php
     include('conexionBD.php');
-    
+    session_start();
+
     if(isset($_POST['invitado'])) { //Comprobamos si tenemos la sesion de invitado
-        session_start();
         $invitado = $_POST['invitado'];
         $_SESSION['invitado'] = $invitado;
         header("refresh:0;url=../index.php");//En su caso redirige a pagina principal
@@ -17,17 +17,14 @@
 
     //Filtramos los datos que nos envia el formulario para evitar inyeccion sql
     $email = $connection->real_escape_string($_POST['email']);
-    $contraseña = $connection->real_escape_string($_POST['contraseña']);
+    $contrasenia = $connection->real_escape_string($_POST['contrasenia']);
 
     if (isset($_POST['email'])){
-        session_start();
-
         $query = "SELECT * FROM usuarios WHERE email='$email'";
         $result = mysqli_query($connection, $query);
 
         while($row = mysqli_fetch_array($result)){
-
-        if (password_verify($contraseña, $row['contraseña'])) { //Daba error porque en la base de datos estaba varchar(20) y el hash generado es mucho mas largo
+        if (password_verify($contrasenia, $row['contrasenia'])) { //Daba error porque en la base de datos estaba varchar(20) y el hash generado es mucho mas largo
 
         $_SESSION['email'] = $email;
         $_SESSION['usuario'] = $row['usuario'];
@@ -49,7 +46,9 @@
 <!doctype html>
     <html lang="en">
         <head>
-        <title>Nabil Messaoudi Hammu</title>
+        <!--<title>Nabil Messaoudi Hammu</title>-->
+        <title>Gym Contigo</title>
+        <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -71,14 +70,6 @@
                                 <div class="login-wrap p-4 p-md-5">
                                     <div class="d-flex">
                                         <div class="w-100">
-                                            <ul class="list">
-                                                <div>
-                                                    <button class="switch" id="switch">
-                                                        <span><i class="fas fa-sun"></i></span>
-                                                        <span><i class="fas fa-moon"></i></span>
-                                                    </button>
-                                                </div>
-                                            </ul>
                                             <h4 class="mb-4">Credenciales incorrectos</h4>			
                                         </div>
                                     </div>
@@ -106,7 +97,9 @@
 <!doctype html>
     <html lang="en">
         <head>
-        <title>Nabil Messaoudi Hammu</title>
+        <!--<title>Nabil Messaoudi Hammu</title>-->
+        <title>Gym Contigo</title>
+        <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -128,14 +121,6 @@
                                 <div class="login-wrap p-4 p-md-5">
                                     <div class="d-flex">
                                         <div class="w-100">
-                                            <ul class="list">
-                                                <div>
-                                                    <button class="switch" id="switch">
-                                                        <span><i class="fas fa-sun"></i></span>
-                                                        <span><i class="fas fa-moon"></i></span>
-                                                    </button>
-                                                </div>
-                                            </ul>
                                             <h4 class="mb-4">Credenciales incorrectos</h4>		
                                         </div>
                                     </div>

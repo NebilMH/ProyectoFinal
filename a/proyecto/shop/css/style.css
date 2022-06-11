@@ -449,8 +449,30 @@ section{
     font-size: 2rem;
 }
 
+/*bocadillo*/
+.bocadillo{
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    width: 230px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 15px;
+    margin: auto;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    border: 2px solid white;
+}
+
 /* Responsive  */
-@media (min-width: 601px) and (max-width: 1585px){
+@media (min-width: 1585px) {
+    #sectionLoadMore {
+        display: none;
+    }
+}
+
+@media (min-width: 821px) and (max-width: 1585px){
     #menu-bar{
         display: block;
     }
@@ -476,10 +498,115 @@ section{
     header .navbar.active{
         left: 0;
     }
+    #sectionLoadMore {
+        display: none;
+    }
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2em;
+        text-align: center;
+        padding: 20px;
+        margin: auto;
+        text-transform: uppercase;
+        padding-bottom: 6px;
+        border: 2px solid white;
+    }
 }
 
 header .userandicon {
     font-size: 20px;
+}
+
+@media (min-width: 601px) and (max-width: 820px){
+    #menu-bar{
+        display: block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: -120%;
+        width: 100%;
+        background: #eee;
+        border-top: .1rem solid rgba(0, 0, 0, .1);
+    }
+    header .navbar a{
+        font-size: 2rem;
+        background: #C1C1C1;
+        border: .1rem solid #000;
+        border-radius: .5rem;
+        padding: 1rem;
+        margin: 1rem;
+        display: block;
+        text-align: center;
+    }
+    header .navbar.active{
+        left: 0;
+    }
+    #sectionLoadMore {
+        display: none;
+    }
+
+    #sectionLoadMore {
+        display: block;
+    }
+    #product, #packs, #shakers, #barritas {
+        display: none;
+    }
+
+    .product .box-container .box {
+        border: .1rem solid rgba(0, 0, 0, .1);
+        border-radius: .5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        background: #f5f5f5;
+        flex: 1 1 16rem;
+    }
+
+    .product .box-container .content {
+        padding: 0.5rem;
+    }
+
+    .product .box-container .box .content h3 {
+        color: #000;
+        font-size: 1.3rem;
+    }
+
+    .product .box-container .box .content .price {
+        color: #000;
+        font-size: 1.8rem;
+        font-weight: bolder;
+        padding: 1rem 0;
+    }
+
+    .product .box-container .box .content .stars i {
+        font-size: 0.8rem;
+        color: orangered;
+    }
+
+    .product .box-container .box img {
+        height: 2cm;
+        margin: 8rem 2rem;
+    }
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2em;
+        text-align: center;
+        padding: 18px;
+        margin: auto auto 20px auto;
+        text-transform: uppercase;
+        padding-bottom: 6px;
+        border: 2px solid white;
+    }
 }
 
 /* Responsive  */
@@ -538,6 +665,172 @@ header .userandicon {
     header .navbar.active{
         left: 0;
     }
+    #sectionLoadMore {
+        display: block;
+    }
+    #product, #packs, #shakers, #barritas {
+        display: none;
+    }
+
+    .product .box-container .box {
+        border: .1rem solid rgba(0, 0, 0, .1);
+        border-radius: .5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        background: #f5f5f5;
+        flex: 1 1 16rem;
+    }
+
+    .product .box-container .content {
+        padding: 0.5rem;
+    }
+
+    .product .box-container .box .content h3 {
+        color: #000;
+        font-size: 1.3rem;
+    }
+
+    .product .box-container .box .content .price {
+        color: #000;
+        font-size: 1.8rem;
+        font-weight: bolder;
+        padding: 1rem 0;
+    }
+
+    .product .box-container .box .content .stars i {
+        font-size: 0.8rem;
+        color: orangered;
+    }
+
+    .product .box-container .box img {
+        height: 2cm;
+        margin: 8rem 2rem;
+    }
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2em;
+        text-align: center;
+        padding: 8px;
+        margin: -5px auto auto auto;
+        text-transform: uppercase;
+        padding-bottom: 6px;
+        border: 2px solid white;
+    }
+}
+
+@media (max-width: 465px){ 
+    #product, #packs, #shakers, #barritas {
+        display: none;
+    }
+
+    .product .box-container .box {
+        border: .1rem solid rgba(0, 0, 0, .1);
+        border-radius: .5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        background: #f5f5f5;
+        flex: 1 1 14rem;
+    }
+
+    .product .box-container .content {
+        padding: 0.5rem;
+    }
+
+    .product .box-container .box .content h3 {
+        color: #000;
+        font-size: 1rem;
+    }
+
+    .product .box-container .box .content .price {
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: bolder;
+        padding: 1rem 0;
+    }
+
+    .product .box-container .box .content .stars i {
+        font-size: 0.8rem;
+        color: orangered;
+    }
+
+    .product .box-container .box img {
+        height: 2cm;
+        margin: 8rem 2rem;
+    }
+
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2em;
+        text-align: center;
+        padding: 8px;
+        margin: -5px auto auto auto;
+        text-transform: uppercase;
+        padding-bottom: 6px;
+        border: 2px solid white;
+    }
+}
+
+@media (max-width: 400px){ 
+    .product .box-container .box {
+        border: .1rem solid rgba(0, 0, 0, .1);
+        border-radius: .5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        background: #f5f5f5;
+        flex: 1 1 14rem;
+    }
+
+    .product .box-container .content {
+        padding: 0.5rem;
+    }
+
+    .product .box-container .box .content h3 {
+        color: #000;
+        font-size: 1rem;
+    }
+
+    .product .box-container .box .content .price {
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: bolder;
+        padding: 1rem 0;
+    }
+
+    .product .box-container .box .content .stars i {
+        font-size: 0.8rem;
+        color: orangered;
+    }
+
+    .product .box-container .box img {
+        height: 2cm;
+        margin: 8rem 2rem;
+    }
+
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2em;
+        text-align: center;
+        padding: 8px;
+        margin: -5px auto auto auto;
+        text-transform: uppercase;
+        padding-bottom: 6px;
+        border: 2px solid white;
+    }
 }
 
 @media (max-width: 360px){ 
@@ -578,6 +871,62 @@ header .userandicon {
     }
     header .navbar.active{
         left: 0;
+    }
+    #sectionLoadMore {
+        display: block;
+    }
+    #product, #packs, #shakers, #barritas {
+        display: none;
+    }
+
+    .product .box-container .box {
+        border: .1rem solid rgba(0, 0, 0, .1);
+        border-radius: .5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        background: #f5f5f5;
+        flex: 1 1 10rem;
+    }
+
+    .product .box-container .content {
+        padding: 1rem;
+    }
+
+    .product .box-container .box .content h3 {
+        color: #000;
+        font-size: 1rem;
+    }
+
+    .product .box-container .box .content .price {
+        color: #000;
+        font-size: 1.8rem;
+        font-weight: bolder;
+        padding: 1rem 0;
+    }
+
+    .product .box-container .box .content .stars i {
+        font-size: 0.8rem;
+        color: orangered;
+    }
+
+    .product .box-container .box img {
+        height: 1.5cm;
+    }
+
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2em;
+        text-align: center;
+        padding: 8px;
+        margin: -5px auto auto auto;
+        text-transform: uppercase;
+        padding-bottom: 6px;
+        border: 2px solid white;
     }
 }
 

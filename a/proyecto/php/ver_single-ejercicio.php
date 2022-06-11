@@ -16,8 +16,10 @@
         $json[] = array(
             'id' => $row['id'],
             'urlP' => $row['urlP'],
+            'urlV' => $row['urlV'],
             'imagen' => $row['imagen'],
-            'titulo' => $row['titulo']
+            'titulo' => $row['titulo'],
+            'descripcion' => $row['descripcion']
         );
         }
         $jsonstring = json_encode($json[0]);

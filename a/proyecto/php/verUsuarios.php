@@ -18,7 +18,7 @@
             'apellido' => $row['apellido'],
             'email' => $row['email'],
             'usuario' => $row['usuario'],
-            'contraseña' => $row['contraseña']      
+            'contrasenia' => $row['contrasenia']      
         );
         }
             $jsonstring = json_encode($json);

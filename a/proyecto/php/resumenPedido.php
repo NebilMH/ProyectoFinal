@@ -17,27 +17,6 @@
     }
 ?>
 
-<!--Utilizamos funciones para almacenar un array de productos en una sesion, ya que nuestro carrito es temporal y se elimina al cerrar la sesion del usuario-->
-<?php
-    function existenDatosEnSesion(){//omprobamos si el array tiene datos almacenados
-        return isset($_SESSION['datos']) && is_array($_SESSION['datos']);
-    }
-
-    function procesarDatosNuevos(){//Cuando recibimos la variable registrarDatos que nos envia el boton de añadir al carrito
-        if($_POST['accion'] == "registroDatos"){//En su caso almacenamos la informacion que nos envie del producto en el array
-            if($_POST['imagen'] != NULL and $_POST['nombre_producto'] != NULL and $_POST['precio'] != NULL and $_POST['id'] != NULL){
-                    $_SESSION['datos'][] = array('id' => $_POST['id'], 'imagen' => $_POST['imagen'], 'nombre_producto' => $_POST['nombre_producto'], 'precio' => $_POST['precio']);
-            }
-        }
-    }
-    //Llamamos a la funcion para que se ejecute
-    procesarDatosNuevos();
-
-    /*foreach ($_SESSION['datos'] as $key=>$value) {
-        echo "{$key} => " . print_r($value);
-    }*/
-?>
-
 </body>
 </html>
 
@@ -121,8 +100,8 @@
 								<div class="login-wrap p-4">
 									<div class="d-flex">
 										<div class="w-100">
-                                                <button type="button" class="btnAtras" onclick="location.href='../shop/index.php'"><i class="fa-solid fa-arrow-left"></i> Atras</button>
-                                                <button type="button" style="width:150px;" class="btnAtras" onclick="location.href='vaciarCarrito.php'"><i class="fa-solid fa-trash-can"></i> Vaciar carrito</button>
+                                                <button type="button" class="btnAtras" onclick="location.href='carrito.php'"><i class="fa-solid fa-arrow-left"></i> Cancelar</button>
+                                                <h2 style="font-size:25px;">Resumen de pedido</h2>
                                                 <hr>
                                                 <?php /*$id = $_POST['id']; echo $id;*/?>
                                                         <section class="productos_carrito">
@@ -136,33 +115,32 @@
                                                                         <td><b></b></td>
                                                                     </tr>
                                                                         <?php
-                                                                            function imprimeListaProductos() {//Imprimimos los datos del array de sesion con foreach en forma de tabla
-                                                                                $datos = $_SESSION['datos'];
-                                                                                $total = 0.00;//Inicializamos el valor del total a 0 para que vaya sumando el valor de los productos
-                                                                                $contador = -1;//Inicializamos el valor del contador a -1, porque los arrays empiezan por la posicion 0
-                                                                                //Esta variable contador nos servira para poder eliminar el producto que deseemos del carrito
+                                                                                function imprimeListaProductos() {//Imprimimos los datos del array de sesion con foreach en forma de tabla
+                                                                                    $datos = $_SESSION['datos'];
+                                                                                    $total = 0.00;//Inicializamos el valor del total a 0 para que vaya sumando el valor de los productos
+                                                                                    $contador = -1;//Inicializamos el valor del contador a -1, porque los arrays empiezan por la posicion 0
+                                                                                    //Esta variable contador nos servira para poder eliminar el producto que deseemos del carrito
 
-                                                                                foreach ($datos as $producto) {//Imprimimos los datos del array de sesion uno encima de otro
-                                                                                    $contador ++;
+                                                                                    foreach ($datos as $producto) {//Imprimimos los datos del array de sesion uno encima de otro
+                                                                                        $contador ++;
 
-                                                                                    echo "<tr>
-                                                                                            <td><img src=".$producto['imagen']." width='100px'></td>
-                                                                                            <td style='font-size:25px'>".$producto['nombre_producto']."</td>
-                                                                                            <td style='font-size:25px'>".$producto['precio']."€</td>
-                                                                                            <td>
-                                                                                                <form action='eliminarProductoCarro.php' method='POST'>
-                                                                                                    <input type='hidden' name='contador' value='".$contador."' >
-                                                                                                    <button style='background-color:transparent;' type='submit'><i id='papelera' class='fa-solid fa-trash'></i></button>
-                                                                                                </form>
-                                                                                            </td>
+                                                                                        echo "<tr>
+                                                                                                <td><img src=".$producto['imagen']." width='100px'></td>
+                                                                                                <td style='font-size:25px'>".$producto['nombre_producto']."</td>
+                                                                                                <td style='font-size:25px'>".$producto['precio']."€</td>
+                                                                                                <td>
+                                                                                                    <form action='eliminarProductoCarro.php' method='POST'>
+                                                                                                        <input type='hidden' name='contador' value='".$contador."'>
+                                                                                                    </form>
+                                                                                                </td>
+                                                                                                
+                                                                                            </tr>";
                                                                                             
-                                                                                        </tr>";
-                                                                                        
-                                                                                    $total += $producto['precio'];
-                                                                                }
-                                                                                
-                                                                                echo "<tr><a href='resumenPedido.php'><button type='button' class='btnPago'><i class='fa fa-credit-card'></i> Continuar</button></a>
-                                                                                        <p id='total'>Total: ".$total."€</p></tr>";
+                                                                                        $total += $producto['precio'];
+                                                                                    }
+                                                                                    
+                                                                                    echo "<tr><button type='button' class='btnPago' onclick='location.href='pago.php''><i class='fa fa-credit-card'></i> Pagar</button>
+                                                                                            <p id='total'>Total: ".$total."€</p></tr>";
                                                                                 }           
                                                                             imprimeListaProductos();
                                                                         ?>

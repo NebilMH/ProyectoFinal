@@ -23,7 +23,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nabil Messaoudi Hammu</title>
+    <!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo </title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -80,7 +82,7 @@
             </nav>
             <h1>
                 <!--<a href="#"><i ONCLICK="window.location.href= 'login.html'" class="fa fa-user"></i> <?php /*if(isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];}*/?></a>-->
-                <form action='../php/perfil-usuario.php' method='POST' name='formulario'>
+                <form action='../php/perfil-usuario-ppal.php' method='POST' name='formulario'>
                 <?php 
                         if(isset($_SESSION['usuario']) && $_SESSION['usuario'] == "Admin") {
                             echo "
@@ -104,21 +106,31 @@
         </div>
     </header>
     
+    <?php
+        include("../php/conexionBD.php");
+        $currentFile = basename(__FILE__);
+
+        $query="SELECT * FROM ejercicios WHERE urlP='$currentFile'"; 
+        $result = mysqli_query($connection, $query);
+
+        $contador = 0;
+        while(($contador < 1) && ($row = mysqli_fetch_array($result))){
+    ?>
+    
     <div class="video"> 
         <div class="content">
-            <h3>Ejercicio - Abdominales</h3>
-            <p>
-                Los abdominales son uno de los ejercicios más populares para fortalecer el vientre sin ayuda de máquinas. 
-                En pocas palabras, consisten en pasar de una posición tumbada a una sentada al llevar el pecho hacia los muslos. 
-                Este movimiento lo podemos realizar especialmente gracias al músculo recto abdominal.
-            </p>
+            <h3>Ejercicio - <?php echo $row['titulo']; ?></h3>
+            <p><?php echo $row['descripcion']; ?></p>
         </div>
         <div class="image-container">
             <div class="big-image">
-                <iframe width="1000" height="510" src="https://www.youtube.com/embed/RPfxeHWm8Oo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <?php echo $row['urlV']; ?>
             </div>
         </div>
     </div>
+    <?php
+        }
+    ?>
 
     <div>
         <footer id="footer" class="footer">

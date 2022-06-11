@@ -10,7 +10,9 @@
 <!doctype html>
 <html lang="en">
 	<head>
-	<title>Nabil Messaoudi Hammu</title>
+	<!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -33,21 +35,13 @@
 						<div class="login-wrap p-4 p-md-5">
 			<div class="d-flex">
 			<div class="w-100">
-					<ul class="list">
-						<div>
-							<button class="switch" id="switch">
-								<span><i class="fas fa-sun"></i></span>
-								<span><i class="fas fa-moon"></i></span>
-							</button>
-						</div>
-					</ul>
-				<h3 class="mb-4">Cambio de contraseña</h3>		
-				<h4>Codigo correcto, ya puede cambiar su contraseña</h4>	
+				<h3 class="mb-4">Cambio de contrasenia</h3>		
+				<h4>Codigo correcto, ya puede cambiar su contrasenia</h4>	
 			</div>
 		</div>
 		<form action="editar-pass-bd-olvidarC.php" method="post" class="signin-form">
 			<div class="form-group mt-2">
-				<input name="contraseña" type="text" class="form-control" placeholder="Nueva contraseña" required>
+				<input name="contrasenia" type="text" class="form-control" placeholder="Nueva contrasenia" required>
 			</div>
 
 			<input type="hidden" id="id" name="id" value="<?php echo $id;?>">

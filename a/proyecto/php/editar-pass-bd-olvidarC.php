@@ -1,19 +1,21 @@
 <?php
 include('conexionBD.php');
 
-if(isset($_POST['contraseña'])) {
+if(isset($_POST['contrasenia'])) {
     $id = $_POST['id'];
-    $contraseña = $_POST['contraseña'];
+    $contrasenia = $_POST['contrasenia'];
+	$hash = password_hash($contrasenia, PASSWORD_BCRYPT);
 
-    $query = "UPDATE usuarios SET contraseña= '$contraseña' WHERE id= '$id'"; 
+    $query = "UPDATE usuarios SET contrasenia= '$hash' WHERE id= '$id'"; 
     $result = mysqli_query($connection, $query);;
-
 ?>
 
 <!doctype html>
 <html lang="en">
 	<head>
-	<title>Nabil Messaoudi Hammu</title>
+	<!--<title>Nabil Messaoudi Hammu</title>-->
+	<title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -35,15 +37,7 @@ if(isset($_POST['contraseña'])) {
 							<div class="login-wrap p-4 p-md-5">
 								<div class="d-flex">
 									<div class="w-100">
-										<ul class="list">
-											<div>
-												<button class="switch" id="switch">
-													<span><i class="fas fa-sun"></i></span>
-													<span><i class="fas fa-moon"></i></span>
-												</button>
-											</div>
-										</ul>
-										<h4 class="mb-4">Tu contraseña se ha cambiado correctamente</h4>			
+										<h4 class="mb-4">Tu contrasenia se ha cambiado correctamente</h4>			
 									</div>
 								</div>
 								<button type="submit" ONCLICK="window.location.href= 'login.php'" class="form-control btn rounded submit px-3">Aceptar</button>

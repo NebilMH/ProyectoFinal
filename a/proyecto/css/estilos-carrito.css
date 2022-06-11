@@ -48,7 +48,7 @@ td {
     background-color: transparent;
     border-radius: 5px;
     padding: 5px;
-    width: 100px;
+    width: 120px;
     background-color: darkred;
     color: white;
     font-weight: bold;
@@ -183,6 +183,20 @@ header .icons a:hover{
     text-transform: none;
 }
 
+.bocadillo{
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    width: 230px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    padding-top: 60px;
+    margin: auto;
+    text-transform: uppercase;
+    border: 2px solid white;
+}
+
 /* Responsive  */
 @media (min-width: 601px) and (max-width: 1240px){
     #menu-bar{
@@ -209,6 +223,19 @@ header .icons a:hover{
     }
     header .navbar.active{
         left: 0;
+    }
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1em;
+        text-align: center;
+        padding-top: 55px;
+        margin: auto;
+        text-transform: uppercase;
+        border: 2px solid white;
     }
 }
 
@@ -276,6 +303,19 @@ header .logo {
     header .navbar.active{
         left: 0;
     }
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1em;
+        text-align: center;
+        padding-top: 50px;
+        margin: auto;
+        text-transform: uppercase;
+        border: 2px solid white;
+    }
 }
 
 @media (max-width: 360px){ 
@@ -324,6 +364,19 @@ header .logo {
     }
     header .navbar.active{
         left: 0;
+    }
+    .bocadillo{
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        width: 230px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1em;
+        text-align: center;
+        padding-top: 50px;
+        margin: auto;
+        text-transform: uppercase;
+        border: 2px solid white;
     }
 }
 

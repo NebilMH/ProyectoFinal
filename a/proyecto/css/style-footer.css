@@ -1619,7 +1619,10 @@ textarea.form-control {
   height: auto; }
 
 .form-group {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  margin-left: 1%;
+  margin-right: 1%;
+}
 
 .form-text {
   display: block;

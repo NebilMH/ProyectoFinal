@@ -10,14 +10,20 @@
         $apellido = $connection->real_escape_string($_POST['apellido']);
         $email = $connection->real_escape_string($_POST['email']);
         $usuario = $connection->real_escape_string($_POST['usuario']);
-        $hash = $connection->real_escape_string($_POST['hash']);
+        $contrasenia = $connection->real_escape_string($_POST['contrasenia']);
+        $hash = password_hash($contrasenia, PASSWORD_BCRYPT);
 
         if($codigo == $codigo2) {//Comprobamos si el codigo generado es el mismo que el que ha introducido el usuario
-            $query = "INSERT INTO usuarios (id_rol, nombre, apellido, email, usuario, contraseña)
-            VALUES ('2', '$nombre', '$apellido', '$email', '$usuario', '$hash')";
-
-            $result = mysqli_query($connection, $query);
-
+            if($nombre == "Administrador" && $apellido == "Administrador" && $email == "admin@gmail.com" && $usuario == "Admin" && $contrasenia == "admin") {
+                $query = "INSERT INTO usuarios (id_rol, nombre, apellido, email, usuario, contrasenia)
+                VALUES ('1', '$nombre', '$apellido', '$email', '$usuario', '$hash')";
+                $result = mysqli_query($connection, $query);
+            } else {
+                $query = "INSERT INTO usuarios (id_rol, nombre, apellido, email, usuario, contrasenia)
+                VALUES ('2', '$nombre', '$apellido', '$email', '$usuario', '$hash')";
+                $result = mysqli_query($connection, $query);
+            }
+            
             if (!$result) {
                 die('Consulta fallida.');
             }
@@ -26,7 +32,9 @@
     <!doctype html>
     <html lang="en">
         <head>
-        <title>Nabil Messaoudi Hammu</title>
+        <!--<title>Nabil Messaoudi Hammu</title>-->
+        <title>Gym Contigo</title>
+        <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -48,14 +56,6 @@
                                 <div class="login-wrap p-4 p-md-5">
                                     <div class="d-flex">
                                         <div class="w-100">
-                                            <ul class="list">
-                                                <div>
-                                                    <button class="switch" id="switch">
-                                                        <span><i class="fas fa-sun"></i></span>
-                                                        <span><i class="fas fa-moon"></i></span>
-                                                    </button>
-                                                </div>
-                                            </ul>
                                             <h3 class="mb-4" style="color:green;font-weight:bold">Codigo correcto</h3>
                                             <h4 class="mb-4">Cuenta creada correctamente</h4>
                                         </div>
@@ -78,7 +78,7 @@
 <?php
         } else {
         /*echo "<script type='text/javascript'>
-            window.location.href = 'error-codigo.php?codigo=$codigo2&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contraseña=$contraseña';
+            window.location.href = 'error-codigo.php?codigo=$codigo2&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contrasenia=$contrasenia';
         </script>";*/
 ?>    
 

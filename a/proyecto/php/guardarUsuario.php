@@ -12,8 +12,7 @@
         $apellido = $_POST['apellido'];
         $email = $_POST['email'];
         $usuario = $_POST['usuario'];
-        $contraseña = $_POST['contraseña'];
-        $hash = password_hash($contraseña, PASSWORD_BCRYPT);
+        $contrasenia = $_POST['contrasenia'];
     }
 
     $usuario_nuevo = false;
@@ -29,7 +28,11 @@
 
     $mail = new PHPMailer(true);
 
-    $codigo = rand(10000,99999);
+    function generateRandomString($length = 6) { 
+        return substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length); 
+    }
+
+    $codigo = generateRandomString($length = 6);
 
     $_SESSION['codigo'] = $codigo;
 
@@ -54,11 +57,11 @@
         echo 'Correo enviado';
 
         /*echo "<script type='text/javascript'>
-                window.location.href = 'verificacion.php?codigo=$codigo&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contraseña=$contraseña';
+                window.location.href = 'verificacion.php?codigo=$codigo&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contrasenia=$contrasenia';
             </script>
         ";*/
 
-        //header ("Location: verificacion.php?codigo=$codigo&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contraseña=$contraseña"); 
+        //header ("Location: verificacion.php?codigo=$codigo&nombre=$nombre&apellido=$apellido&email=$email&usuario=$usuario&contrasenia=$contrasenia"); 
         //exit;
 ?>
         <html>
@@ -76,7 +79,7 @@
 		<input type="hidden" name="apellido" value="<?php echo $apellido;?>">
 		<input type="hidden" name="email" value="<?php echo $email;?>">
 		<input type="hidden" name="usuario" value="<?php echo $usuario;?>">
-		<input type="hidden" name="hash" value="<?php echo $hash;?>">
+		<input type="hidden" name="contrasenia" value="<?php echo $contrasenia;?>">
     </form>
     </body>
     </html>
@@ -92,7 +95,9 @@
 <!doctype html>
 <html lang="es">
 	<head>
-	<title>Nabil Messaoudi Hammu</title>
+	<!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
@@ -114,14 +119,6 @@
 							<div class="login-wrap p-4 p-md-5">
 								<div class="d-flex">
 									<div class="w-100">
-										<ul class="list">
-											<div>
-												<button class="switch" id="switch">
-													<span><i class="fas fa-sun"></i></span>
-													<span><i class="fas fa-moon"></i></span>
-												</button>
-											</div>
-										</ul>
 										<h4 class="mb-4">Este email ya existe</h4>			
 									</div>
 								</div>

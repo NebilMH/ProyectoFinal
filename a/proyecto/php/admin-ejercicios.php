@@ -17,12 +17,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--<title>Nabil Messaoudi Hammu</title>-->
+    <title>Gym Contigo</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon3.png">
     <link rel="stylesheet" href="../css/estilos-admin.css">
     <script src="https://kit.fontawesome.com/9ba7b80b84.js" crossorigin="anonymous"></script>
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="../css/responsive-principal.css">
 
     <!-- Estilos boton modo oscuro -->
     <script src="https://kit.fontawesome.com/9ba7b80b84.js" crossorigin="anonymous"></script>
@@ -47,7 +46,6 @@
                 <a href="admin-usuarios.php">Usuarios</a>
                 <a href="admin-productos.php">Productos</a>
                 <a href="admin-soporte.php">Soporte</a>
-                <a href="admin-roles.php">Roles</a>
                 <a href="../index.php">Inicio</a>
                 <a href="../shop/index.php">Tienda</a>
                 <a class="botondm">
@@ -86,23 +84,27 @@
         <!--<label class="userAdmin">Sesion actual: <a style="font-weight:bold;color:red;font-size:20px;font-family:Georgia, 'Times New Roman', Times, serif;'"><?php //echo $_SESSION['usuario']?></a><button onclick="location.href='../index.php'" class="userAdminBtn">Inicio</button><button onclick="location.href='shop/index.php'">Tienda</button></label>-->
         <div class="productos">
             <div class="formulario_E">
-                <form id="formularioE" class="formularioE" method="post" action="añadirEjercicio.php">
+                <form id="formularioE" class="formularioE" method="post" action="../ejercicios/crearPaginaEjercicio.php">
                     <p class="panelE" style="font-weight: bold">Panel de creación</p>
                     <ul id="seccion_crearE">
                         <div class="inputsE">Url: <input id="create_url" name="Curl" type="text"/></div>
+                        <div class="inputsE">Url Video: <input id="create_urlV" name="CurlV" type="text"/></div>
                         <div class="inputsE">Imagen: <input style="font-size:12px;" id="create_imagen" name="Cimagen" type="file"/></div>
-                        <div class="inputsE">Titulo: <input id="create_titulo" name="Ctitulo" type="text"></div><br>
+                        <div class="inputsE">Titulo: <input id="create_titulo" name="Ctitulo" type="text"></div>
+                        <div class="inputsE">Descripcion: <input id="create_descripcion" name="Cdescripcion" type="text"></div><br>
                         <button type="submit" id="createE">Añadir ejercicio</button>
                     </ul>
                 </form>
-                
+
                 <form id="formularioE" class="formularioE" method="post" action="editarEjercicio.php">
                     <p class="panelE" style="font-weight: bold;">Panel de edición</p>
                     <ul id="seccion_editarE">
                         <div><input id="inputId" name="id" type="hidden"></div>
                         <div class="inputsE">Url: <input id="update_url" name="Eurl" type="text"/></div>
+                        <div class="inputsE">Url Video: <input id="update_urlV" name="EurlV" type="text"/></div>
                         <div class="inputsE">Imagen: <input style="font-size:12px;" id="update_imagenE" name="Eimagen" type="text"/></div>
-                        <div class="inputsE">Titulo: <input id="update_titulo" name="Etitulo" type="text"></div><br>
+                        <div class="inputsE">Titulo: <input id="update_titulo" name="Etitulo" type="text"></div>
+                        <div class="inputsE">Descripcion: <input id="update_descripcion" name="Edescripcion" type="text"></div><br>
                         <button type="submit" id="createE">Actualizar ejercicio</button>
                     </ul>
                 </form>
