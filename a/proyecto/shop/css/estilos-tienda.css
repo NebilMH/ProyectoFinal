@@ -1,0 +1,41 @@
+body{
+    background-image: url("../../images/fondo2.jpg");
+    background-size: contain;
+    padding: 50px;
+}
+
+@media (min-width:1300px){
+    #footer {
+        font-size: 15px;
+        line-height: 30px;
+    }
+}
+
+p, h3 {
+    color: white;
+}
+
+#botonMas {
+    text-align: center;
+}
+
+#loadMore {
+    text-align: center;
+    padding: 5px;
+    border: 2px solid teal;
+    border-radius: 10px;
+    cursor: pointer;
+    color: teal;
+    background-color: white;
+}
+
+#loadMore:hover {
+    border: 2px solid white;
+    color: white;
+    background-color: teal;
+}
+
+
+/*Responsive tienda*/
+
+
