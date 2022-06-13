@@ -1,13 +1,13 @@
 <?php
-    $BBDD = $_POST['bd'];
-    $USERDB = $_POST['usuario'];
-    $PASSDB = $_POST['contrasenia'];
+    $bd = $_POST['bd'];
+    $usuario = $_POST['usuario'];
+    $contrasenia = $_POST['contrasenia'];
 
-    $BBDD = escapeshellarg($BBDD);
-    $USERDB = escapeshellarg($USERDB);
-    $PASSDB = escapeshellarg($PASSDB);
+    putenv("BBDD=$bd");
+    putenv("USERDB=$usuario");
+    putenv("PASSDB=$contrasenia");
 
-    $output = exec("instalador.sh $BBDD $USERDB $PASSDB");
+    $output = exec('instalador.sh');
 
     try {
         shell_exec("/var/www/html/ProyectoFinal/a/proyecto/php/despliegue/instalador.sh");
