@@ -1,9 +1,3 @@
-<?php
-     // Archivo al que le daremos permisos
-    $archivo = "/var/www/html/ProyectoFinal/a/proyecto/php/despliegue/instalador.sh";
-     // Asignamos todos los permisos al archivo
-    chmod($archivo, 777);
-?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -37,17 +31,17 @@
                 <form action="instalador.php" method="post" class="signin-form">
                     <div class="form-group mt-6">
                         <label for="usuario" style="color:black;">Base de Datos:</label>
-                        <input name="usuario" id="usuario" type="text" value="proyecto" class="form-control" readonly>
+                        <input name="bd" id="usuario" type="text" placeholder="Nombre de la base de datos" class="form-control" required>
                     </div>
 
                     <div class="form-group mt-5">
                         <label for="email" style="color:black;">Usuario Base de Datos:</label>
-                        <input name="email" id="email" type="text" value="debianDB" class="form-control" readonly>
+                        <input name="usuario" id="email" type="text" placeholder="Usuario de la base de datos" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label for="password-field" style="color:black;">Contraseña Base de Datos:</label>
-                        <input id="password-field" name="contrasenia" type="text" value="debianDB" class="form-control" readonly>
+                        <input id="password-field" name="contrasenia" type="text" placeholder="Contraseña de la base de datos" class="form-control" required>
                     </div>
 
                     <div class="form-group">
