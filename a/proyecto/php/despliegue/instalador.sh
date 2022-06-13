@@ -1,9 +1,9 @@
 #!/bin/bash
 
-USERDB="debianDB"
-PASSDB="debianDB"
+BBDD=$BBDD
+USERDB=$USERDB
+PASSDB=$PASSDB
 DATOS="bd.sql"
-BBDD="proyecto"
 
 mysqladmin -u $USERDB -p$USERDB create $BBDD
 mysql -u $USERDB -p$USERDB $BBDD < $DATOS
