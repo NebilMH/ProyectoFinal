@@ -6,10 +6,17 @@
     $connection = mysqli_connect(
         'localhost', $usuario, $contrasenia, $bd
     );
+
     $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$bd'";
 	$result = mysqli_query($connection, $query);
 
-	if (!$result) {
+    if (!$result) {
+        die('No se pudo conectar a la base de datos: '.mysqli_error($connection));
+    }
+
+    $db_selected = mysqli_select_db($bd, $connection);
+
+    if (!$db_selected) {
 ?>
     <!doctype html>
     <html lang="en">
@@ -39,7 +46,6 @@
                 <div class="w-100">
                 <h3 class="mb-4">Instalación exitosa!</h3>	
                     <p>Introduzca los credenciales que desea:</p>
-                    <?php echo $result?>
                 </div>
                 </div>         
                     <div class="form-group mt-6">
@@ -116,6 +122,7 @@
                 <div class="w-100">
                 <h3 class="mb-4">Instalación fallida!</h3>	
                     <p>La base de datos ya existe</p>
+                    <?php echo $result?>
                 </div>
                 </div>         
                     <div class="form-group">
