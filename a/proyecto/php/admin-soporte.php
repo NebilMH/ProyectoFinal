@@ -116,7 +116,7 @@
                             <td style="background-color: #3cc0b5;" id="idAsunto"><b>Asunto</b></td>	
                             <td style="background-color: #3cc0b5;"><b>Mensaje</b></td>
 
-                            <input type="checkbox" id="btn-modal">
+                            <input type="checkbox" class="quitar" id="btn-modal">
                             <td><label for="btn-modal" class="lbl-modal" id="lupa" style="color:darkblue;"><i class="fa-solid fa-magnifying-glass"></i></label></td>
                             <button id="limpiarResult2">Limpiar resultados <i class="fa-solid fa-broom"></i></button>
                             <div id="ponerBoton"></div>
