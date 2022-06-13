@@ -4,7 +4,7 @@
     $contrasenia = $_POST['contrasenia'];
 
     $connection = mysqli_connect(
-        'localhost', $usuario, $contrasenia, $bd
+        'localhost', $usuario, $contrasenia
     );
 
     if ($connection) {
