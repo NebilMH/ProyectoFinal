@@ -31,7 +31,7 @@
 			<div class="d-flex">
 			<div class="w-100">
 			<h3 class="mb-4">Instalador</h3>	
-					
+				<p>Dar permisos al archivo instalador.sh: sudo chmod +x /var/www/html/ProyectoFinal/a/proyecto/php/despliegue/instalador.sh</p>		
 			</div>
 			</div>
                 <form action="instalador.php" method="post" class="signin-form">
