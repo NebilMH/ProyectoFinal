@@ -444,7 +444,7 @@ $(document).ready(function () {
             const id = $(element).attr('inputId');
             $.post('ver_single-producto.php', {id}, (response) => {
                 const dato = JSON.parse(response);
-                $("#btn-modal").click();
+                $(".quitar").click();
                 $('#inputId').val(dato.id);
                 $(`.productoEncontrado_${dato.id}`).addClass('resaltado');
                 self.location.href = `#${dato.nombre_producto}_${dato.id}`;
@@ -474,7 +474,7 @@ $(document).ready(function () {
             const id = $(element).attr('inputId');
             $.post('ver_single-ejercicio.php', {id}, (response) => {
                 const dato = JSON.parse(response);
-                $("#btn-modal").click();
+                $(".quitar").click();
                 $('#inputId').val(dato.id);
                 $(`.ejercicioEncontrado_${dato.id}`).addClass('resaltado');
                 self.location.href = `#${dato.titulo}_${dato.id}`;
@@ -504,7 +504,7 @@ $(document).ready(function () {
             const id = $(element).attr('inputId');
             $.post('ver_single-soporte.php', {id}, (response) => {
                 const dato = JSON.parse(response);
-                $("#btn-modal").click();
+                $(".quitar").click();
                 $('#inputId').val(dato.id);
                 $(`.soporteEncontrado_${dato.id}`).addClass('resaltado');
                 self.location.href = `#${dato.nombre}_${dato.id}`;
