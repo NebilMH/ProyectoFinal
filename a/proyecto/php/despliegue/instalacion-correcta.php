@@ -5,8 +5,8 @@ if (isset($_POST['bd'])) {
     $contraseniaBD = $_POST['contraseniaBD'];
     
     putenv("BBDD=$bd");
-    putenv("USERDB=$usuario");
-    putenv("PASSDB=$contrasenia");
+    putenv("USERDB=$usuarioBD");
+    putenv("PASSDB=$contraseniaBD");
     $output = exec('instalador.sh');
 
     try {
