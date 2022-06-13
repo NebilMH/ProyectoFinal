@@ -108,19 +108,19 @@ if (isset($_SESSION['bd'])) {
     fwrite($nuevoArchivo,$codigo);
     fclose($nuevoArchivo);
 
-    $nombreArchivo = "conexionBD.php";
-    $nombreArchivo2 = $nombreArchivo;
-    $nuevoArchivo = fopen("../$nombreArchivo2", 'w');
+    $nombreArchivo2 = "conexionBD.php";
+    $nombreArchivo3 = $nombreArchivo2;
+    $nuevoArchivo4 = fopen("../$nombreArchivo3", 'w');
     
-    $codigo = "
+    $codigo5 = "
         <?php
             $connection = mysqli_connect(
                 'localhost', '$usuarioBD', '$contraseniaBD', '".$_SESSION['bd']."'
             );
         ?>";
 
-    fwrite($nuevoArchivo,$codigo);
-    fclose($nuevoArchivo);
+    fwrite($nuevoArchivo4,$codigo5);
+    fclose($nuevoArchivo4);
 
     putenv("BBDD=$bd");
     putenv("USERDB=$usuarioBD");
