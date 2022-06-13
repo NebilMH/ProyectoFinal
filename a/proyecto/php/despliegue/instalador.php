@@ -11,7 +11,7 @@
         $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$bd'";
         $result = mysqli_query($connection, $query);
 
-        if ($result) {
+        if (mysqli_fetch_row($result) > 0) {
         ?>
             <!doctype html>
             <html lang="en">
@@ -59,9 +59,7 @@
                 </body>
             </html>
         <?php
-        } 
-        
-        if(!$result) {
+        } else {
         ?>
             <html>
             <head>
@@ -132,4 +130,3 @@
         <?php
     }
 ?>
-
