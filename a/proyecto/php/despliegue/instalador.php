@@ -74,9 +74,9 @@
                 }
             </script>
             <form method="POST" name="formulario">
-                <input type="hidden" name="nombre" value="<?php echo $bd;?>">
-                <input type="hidden" name="apellido" value="<?php echo $usuario;?>">
-                <input type="hidden" name="email" value="<?php echo $contrasenia;?>">
+                <input type="hidden" name="bd" value="<?php echo $bd;?>">
+                <input type="hidden" name="usuario" value="<?php echo $usuario;?>">
+                <input type="hidden" name="contrasenia" value="<?php echo $contrasenia;?>">
             </form>
             </body>
             </html>
@@ -132,3 +132,4 @@
         <?php
     }
 ?>
+
