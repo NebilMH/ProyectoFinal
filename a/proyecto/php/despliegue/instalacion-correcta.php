@@ -145,6 +145,7 @@ if (isset($_POST['bd'])) {
                 <div class="w-100">
                 <h3 class="mb-4">Instalación exitosa!</h3>	
                     <p>Establezca sus credenciales de administrador:</p>
+                    <?php echo $nombreArchivo; ?>
                 </div>
                 </div>         
                     <form action="setAdmin.php" method="POST">
