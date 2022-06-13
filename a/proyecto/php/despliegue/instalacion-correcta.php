@@ -7,13 +7,12 @@ if (isset($_POST['bd'])) {
     putenv("BBDD=$bd");
     putenv("USERDB=$usuarioBD");
     putenv("PASSDB=$contraseniaBD");
+    putenv("DATOS=".$bd.".sql");
+    $output = exec('instalador.sh');
 
     $nombreArchivo = "".$bd.".sql";
     $nombreArchivo2 = $nombreArchivo;
     $nuevoArchivo = fopen($nombreArchivo2, 'w');
-
-    putenv("DATOS=$nombreArchivo");
-    $output = exec('instalador.sh');
 
     $codigo = "
     SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO';
