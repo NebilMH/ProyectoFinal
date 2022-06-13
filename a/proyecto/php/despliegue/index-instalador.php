@@ -41,7 +41,7 @@
 
                     <div class="form-group">
                         <label for="password-field" style="color:black;">Contraseña Base de Datos:</label>
-                        <input id="password-field" name="contraseniaBD" type="text" placeholder="Contraseña de la base de datos" class="form-control" required>
+                        <input name="contraseniaBD" id="password-field" type="text" placeholder="Contraseña de la base de datos" class="form-control" required>
                     </div>
 
                     <div class="form-group">

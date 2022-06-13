@@ -1,14 +1,13 @@
 <?php
     session_start();
 
-    $bd = $_POST['bd'];
-    $usuarioWeb = $_POST['adminuser'];
-    $contraseniaWeb = $_POST['adminpass'];
-    $hash = password_hash($contraseniaWeb, PASSWORD_BCRYPT);
-
-    if (isset($_POST['adminuser'])) {
-        $usuarioBD = $_POST['usuarioBD'];
-        $contraseniaBD = $_POST['contraseniaBD'];
+    if (isset($_SESSION['bd'])) {
+        $bd = $_SESSION['bd'];
+        $usuarioWeb = $_POST['adminuser'];
+        $contraseniaWeb = $_POST['adminpass'];
+        $hash = password_hash($contraseniaWeb, PASSWORD_BCRYPT);
+        $usuarioBD = $_SESSION['usuarioBD'];
+        $contraseniaBD = $_SESSION['contraseniaBD'];
 
         $connection = mysqli_connect(
             'localhost', $usuarioBD, $contraseniaBD, $bd
@@ -61,7 +60,7 @@
                             </div>   
                             
                             <div class="form-group">
-                                <a href="index-instalador.php"><button style="font-size: 1.1rem;font-weight: bold;color:black;background-color:yellow;" type="button" class="form-control btn rounded submit px-3">Iniciar Sesion</button></a>
+                                <a href="../../php/login.php"><button style="font-size: 1.1rem;font-weight: bold;color:black;background-color:yellow;" type="button" class="form-control btn rounded submit px-3">Iniciar Sesion</button></a>
                             </div>
                         </div>
                             </div>
@@ -77,6 +76,6 @@
             </html>
         <?php
     } else {
-        header("Location: instalacion-correcta.php");
+        header("Location: index-instalador.php");
     }
 ?>
