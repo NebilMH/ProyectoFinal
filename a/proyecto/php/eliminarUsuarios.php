@@ -4,7 +4,11 @@
 	error_reporting(0);
     ini_set('display_errors', '1');
 
-    if ($connection) {
+    if ($connection) { 
+
+    if(isset($_POST['id']) && $_POST['id'] == '1'){
+      header("Location: admin-usuarios.php");
+    } else {
 
     if (isset($_POST['id'])) {
         $id = $_POST['id'];
@@ -16,7 +20,7 @@
         }
         //echo "Usuario eliminado correctamente";
         mysqli_close($connection);
-    } else if (isset($_POST['id'])){
+    } else if (isset($_POST['id']) ){
 
 ?>
 
@@ -69,6 +73,7 @@
         }
     ?>
     <?php
+}
     } else {
         header("Location: despliegue/index-instalador.php");
     }
