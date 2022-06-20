@@ -45,7 +45,7 @@
 		<form action="comprobarLogin.php" method="post" class="signin-form">
 			<div class="form-group mt-5">
 				<label for="email" style="color:black;font-weight:bold;">Email:</label>
-				<input name="email" id="email" type="text" class="form-control" autofocus required>
+				<input name="email" id="email" type="text" class="form-control" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" autofocus required>
 			</div>
 
 			<div class="form-group">
